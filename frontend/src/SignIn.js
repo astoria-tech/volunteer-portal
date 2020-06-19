@@ -1,4 +1,6 @@
 import React from "react";
+import isEmail from "validator/lib/isEmail";
+import { parsePhoneNumberFromString } from "libphonenumber-js";
 import Button from "@material-ui/core/Button";
 import CssBaseline from "@material-ui/core/CssBaseline";
 import TextField from "@material-ui/core/TextField";
@@ -40,6 +42,20 @@ export default function SignIn() {
   };
   const handleSubmit = (event) => {
     event.preventDefault();
+    if (isEmail(value)) {
+      setError(false);
+      console.log("valid email");
+      return;
+    }
+
+    const phoneNumber = parsePhoneNumberFromString(value, "US");
+    if (phoneNumber && phoneNumber.isValid()) {
+      setError(false);
+      console.log("valid phone number");
+      return;
+    }
+
+    setError(true);
   };
 
   return (
