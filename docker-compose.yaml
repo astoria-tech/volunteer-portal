@@ -1,0 +1,14 @@
+version: '3'
+
+services:
+
+  frontend:
+    labels:
+      shipyard.route: '/'
+    build: 'frontend'
+    environment:
+      CI: 'true'
+    volumes:
+      - './frontend/src:/srv/src'
+    ports:
+      - '3000:3000'
