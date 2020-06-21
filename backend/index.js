@@ -1,5 +1,6 @@
 const express = require('express');
-const ejwt = require('express-jwt');
+
+const { verifyToken } = require('./token');
 
 const app = express();
 
@@ -7,8 +8,9 @@ app.get('/', (req, res) => {
   res.send('ayooo');
 });
 
-app.get('/protected', ejwt({ secret: 'a fuckin secret' }), (req, res) => {
-  if (!req.user.admin) return res.sendStatus(401);
+app.get('/auth/', (req, res) => {
+  //   console.log(verifyToken(req.query.token));
+  if (!verifyToken(req.query.token)) res.sendStatus(401);
   res.sendStatus(200);
 });
 
