@@ -8,6 +8,7 @@ services:
     build: 'frontend'
     environment:
       CI: 'true'
+      DANGEROUSLY_DISABLE_HOST_CHECK: 'true'
     volumes:
       - './frontend/src:/srv/src'
     ports:
