@@ -42,6 +42,12 @@ export default function SignIn() {
   };
   const handleSubmit = (event) => {
     event.preventDefault();
+
+    // test API call
+    fetch('/api/v1/')
+      .then(res => res.json())
+      .then(data => console.log(data.greeting))
+
     if (isEmail(value)) {
       setError(false);
       console.log("valid email");
