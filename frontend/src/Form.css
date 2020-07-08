@@ -1,0 +1,13 @@
+ #form-list {
+  display: flex !important;
+  flex-direction: column !important;
+  align-items: flex-start !important;
+  max-width: 480px;
+}
+
+.list-item {
+  display: flex !important;
+  flex-direction: column !important;
+  align-items: flex-start !important;
+  max-width: 480px;
+} 
