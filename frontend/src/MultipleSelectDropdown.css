@@ -1,0 +1,28 @@
+.selectedChip {
+  margin-right: 4px;
+  margin-bottom: 4px;
+  height: 20px;
+  font-size: 12px;
+}
+
+#demo-mutiple-chip {
+  width: 200px;
+}
+
+.menu-item {
+  width: 300px;
+  /* border: 1px dotted gray; */
+  /* padding-top: 2px;
+  padding-bottom: 2px; */
+}
+
+.menu-chip {
+  height: 20px;
+  font-size: 12px;
+}
+
+.multiselect-dropdown {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+}
