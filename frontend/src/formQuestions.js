@@ -61,7 +61,7 @@ const questions = [
       "You can see the Community Agreements here: https://docs.google.com/document/d/1GDPZ0d_UEmXKICwNSUnnp78mNZzQNFFbnmz7F-UDhsM/edit?usp=sharing",
     fieldType: {
       type: "Single select",
-      showAs: "Dropdown"
+      showAs: "List"
     },
     possibleValues: ["Yes", "No"],
     required: true
