@@ -4,6 +4,8 @@ import FormControlLabel from "@material-ui/core/FormControlLabel";
 import Radio from "@material-ui/core/Radio";
 import RadioGroup from "@material-ui/core/RadioGroup";
 
+import './SingleSelect.css';
+
 export default function SingleSelect(props) {
   const { values, showAs } = props;
 
