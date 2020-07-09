@@ -46,9 +46,10 @@ export default function MultiSelectDropdown(props) {
 
   return (
     <div className="multiselect-dropdown">
-      <Button
+      <Button className="multiselect-button"
         aria-controls="simple-menu"
         aria-haspopup="true"
+        disableRipple
         onClick={handleClick}
       >
         Select an option
