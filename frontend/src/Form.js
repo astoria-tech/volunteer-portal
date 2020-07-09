@@ -5,6 +5,7 @@ import { questions } from "./formQuestions";
 import List from "@material-ui/core/List";
 import ListItem from "@material-ui/core/ListItem";
 import ListItemText from "@material-ui/core/ListItemText";
+import TextField from '@material-ui/core/TextField';
 
 import SingleSelect from "./SingleSelect";
 import MultipleSelect from "./MultipleSelect";
@@ -31,9 +32,17 @@ export default function Form() {
         <MultipleSelect values={possibleValues} showAs={fieldType.showAs} />
       );
     }
+
+    if (fieldType.type === "Single line text" || fieldType.type === "Phone number") {
+      options = (
+        <TextField className="text-field" variant="outlined" size="small" />
+      );
+    }
+
     return (
       <ListItem key={idx} className="list-item">
         <ListItemText
+          className={required ? "required-list-item" : ""}
           primary={title}
           secondary={description ? description : null}
         />
@@ -41,5 +50,10 @@ export default function Form() {
       </ListItem>
     );
   });
-  return <List id="form-list">{formQuestions}</List>;
+  return (
+    <div className="form">
+      <h2>Astoria Mutual Aid Network • Volunteer Form •</h2>
+      <List id="form-list">{formQuestions}</List>
+    </div>
+  );
 }
