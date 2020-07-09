@@ -2,12 +2,31 @@
   display: flex !important;
   flex-direction: column !important;
   align-items: flex-start !important;
-  max-width: 480px;
+  max-width: 500px;
 }
 
 .list-item {
   display: flex !important;
   flex-direction: column !important;
   align-items: flex-start !important;
-  max-width: 480px;
-} 
+  max-width: 500px;
+  margin-bottom: 30px;
+}
+
+.text-field {
+  width: 500px;
+}
+
+.form {
+  width: 500px;
+}
+
+.form h2 {
+  text-align: left;
+  margin-left: 20px;
+}
+
+.required-list-item .MuiListItemText-primary::After {
+  content: " *";
+  color: red;
+}
