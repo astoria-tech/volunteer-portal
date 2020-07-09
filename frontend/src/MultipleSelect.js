@@ -5,6 +5,8 @@ import Checkbox from "@material-ui/core/Checkbox";
 import Chip from "@material-ui/core/Chip";
 import MultipleSelectDropdown from "./MultipleSelectDropdown";
 
+import './MultipleSelect.css';
+
 export default function MultipleSelect(props) {
   const { values, showAs } = props;
 
@@ -17,7 +19,7 @@ export default function MultipleSelect(props) {
   if (showAs === "List") {
     let options = values.map(value => {
       return (
-        <ListItem key={value}>
+        <ListItem className="multi-select-item" key={value}>
           <Checkbox />
           <Chip size="small" label={value} />
         </ListItem>
