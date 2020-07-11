@@ -7,20 +7,28 @@ import MultipleSelectDropdown from "./MultipleSelectDropdown";
 
 import './MultipleSelect.css';
 
-export default function MultipleSelect(props) {
-  const { values, showAs } = props;
-
+export default function MultipleSelect({
+  possibleValues,
+  showAs,
+  questionIdx,
+  register,
+  setValue
+}) {
   let display;
 
   if (showAs === "Dropdown") {
-    display = <MultipleSelectDropdown options={values} />;
+    display = <MultipleSelectDropdown
+      options={possibleValues}
+      setValue={setValue}
+      questionIdx={questionIdx}
+    />;
   }
 
   if (showAs === "List") {
-    let options = values.map(value => {
+    let options = possibleValues.map((value, idx) => {
       return (
         <ListItem className="multi-select-item" key={value}>
-          <Checkbox />
+          <Checkbox inputRef={register} name={`${questionIdx}-${idx}`}/>
           <Chip size="small" label={value} />
         </ListItem>
       );
