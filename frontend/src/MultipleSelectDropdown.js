@@ -1,16 +1,20 @@
-import React from "react";
+import React, { useState, useEffect, useRef } from "react";
 import "./MultipleSelectDropdown.css";
 import Button from "@material-ui/core/Button";
 import Menu from "@material-ui/core/Menu";
 import MenuItem from "@material-ui/core/MenuItem";
 import Chip from "@material-ui/core/Chip";
 
-export default function MultiSelectDropdown(props) {
-  const [anchorEl, setAnchorEl] = React.useState(null);
-  const [menuOptions, _setMenuOptions] = React.useState([...props.options]);
-  const [selectedOptions, setSelectedOptions] = React.useState([]);
+export default function MultiSelectDropdown({
+  options,
+  setValue,
+  questionIdx
+}) {
+  const [anchorEl, setAnchorEl] = useState(null);
+  const [menuOptions, _setMenuOptions] = useState([...options]);
+  const [selectedOptions, setSelectedOptions] = useState([]);
 
-  const menuRef = React.useRef(menuOptions);
+  const menuRef = useRef(menuOptions);
 
   const setMenuOptions = data => {
     menuRef.current = data;
@@ -21,11 +25,13 @@ export default function MultiSelectDropdown(props) {
     setAnchorEl(event.currentTarget);
   };
 
-  const handleSelection = option => {
+  const handleOptionClick = option => {
     const newData = menuOptions.filter(opt => opt !== option);
     setMenuOptions(newData);
     const newOptions = selectedOptions.concat([option]);
     setSelectedOptions(newOptions);
+    const optionIdx = options.indexOf(option);
+    setValue(`${questionIdx}-${optionIdx}`, true)
     setAnchorEl(null);
   };
 
@@ -41,6 +47,8 @@ export default function MultiSelectDropdown(props) {
         return opt !== option;
       })
       .sort();
+    const optionIdx = options.indexOf(option);
+    setValue(`${questionIdx}-${optionIdx}`, false);
     setSelectedOptions(newSelectedOptions);
   };
 
@@ -66,7 +74,7 @@ export default function MultiSelectDropdown(props) {
             <MenuItem
               key={opt}
               className="menu-item"
-              onClick={() => handleSelection(opt)}
+              onClick={() => handleOptionClick(opt)}
             >
               <Chip key={opt} className="menu-chip" label={opt} size="small" />
             </MenuItem>
