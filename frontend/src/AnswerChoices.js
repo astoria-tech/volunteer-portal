@@ -9,7 +9,8 @@ export default function AnswerChoices({
     possibleValues, 
     showAs, 
     setValue,
-    questionIdx 
+    questionIdx,
+    register
   }) {
     switch (fieldType){
       case "Single select":
@@ -19,20 +20,38 @@ export default function AnswerChoices({
             showAs={showAs}
             setValue={setValue}
             questionIdx={questionIdx}
+            register={register}
           />
         )
       case "Multiple select":
         return (
-          <MultipleSelect 
+          <MultipleSelect
             possibleValues={possibleValues}
             showAs={showAs}
             setValue={setValue}
             questionIdx={questionIdx}
+            register={register}
           />
-        )
+        );
       case "Single line text":
-        return <TextField className="text-field" variant="outlined" size="small" />
+        return (
+          <TextField
+            className="text-field"
+            variant="outlined"
+            size="small"
+            inputRef={register}
+            name={`${questionIdx}`}
+          />
+        );
       case "Phone number": 
-        return <TextField className="text-field" variant="outlined" size="small" />
+        return (
+          <TextField
+            className="text-field"
+            variant="outlined"
+            size="small"
+            inputRef={register}
+            name={`${questionIdx}`}
+          />
+        );
     }
 }
