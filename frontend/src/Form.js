@@ -1,16 +1,18 @@
 import React from "react";
-import "./Form.css";
-
-import { questions } from "./formQuestions";
+import { useForm } from "react-hook-form";
 import List from "@material-ui/core/List";
 import ListItem from "@material-ui/core/ListItem";
 import ListItemText from "@material-ui/core/ListItemText";
-import TextField from '@material-ui/core/TextField';
 
-import SingleSelect from "./SingleSelect";
-import MultipleSelect from "./MultipleSelect";
+import { questions } from "./formQuestions";
+import AnswerChoices from "./AnswerChoices";
+
+import "./Form.css";
 
 export default function Form() {
+  const { register, handleSubmit, setValue } = useForm();
+  const onSubmit = data => console.log('data', data);
+
   const formQuestions = questions.map((question, idx) => {
     const {
       title,
@@ -20,25 +22,6 @@ export default function Form() {
       fieldType
     } = question;
 
-    let options;
-    if (fieldType.type === "Single select") {
-      options = (
-        <SingleSelect values={possibleValues} showAs={fieldType.showAs} />
-      );
-    }
-
-    if (fieldType.type === "Multiple select") {
-      options = (
-        <MultipleSelect values={possibleValues} showAs={fieldType.showAs} />
-      );
-    }
-
-    if (fieldType.type === "Single line text" || fieldType.type === "Phone number") {
-      options = (
-        <TextField className="text-field" variant="outlined" size="small" />
-      );
-    }
-
     return (
       <ListItem key={idx} className="list-item">
         <ListItemText
@@ -46,7 +29,14 @@ export default function Form() {
           primary={title}
           secondary={description ? description : null}
         />
-        {options}
+        <AnswerChoices
+          questionIdx={idx}
+          fieldType={fieldType.type}
+          possibleValues={possibleValues}
+          showAs={fieldType.showAs}
+          setValue={setValue}
+          register={register}
+        />
       </ListItem>
     );
   });
@@ -54,6 +44,7 @@ export default function Form() {
     <div className="form">
       <h2>Astoria Mutual Aid Network • Volunteer Form •</h2>
       <List id="form-list">{formQuestions}</List>
+      <button onClick={handleSubmit(onSubmit)}>Submit</button>
     </div>
   );
 }
