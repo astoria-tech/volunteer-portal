@@ -6,17 +6,20 @@ import RadioGroup from "@material-ui/core/RadioGroup";
 
 import './SingleSelect.css';
 
-export default function SingleSelect(props) {
-  const { values, showAs } = props;
-
-  let options = "Dropdown";
+export default function SingleSelect({
+  possibleValues,
+  showAs,
+  register,
+  questionIdx
+}) {
+  let options;
   if (showAs === "List") {
-    options = values.map((value, idx) => {
+    options = possibleValues.map((value, idx) => {
       return (
         <FormControlLabel
           key={idx}
           value={value}
-          control={<Radio />}
+          control={<Radio inputRef={register} name={`${questionIdx}`}/>}
           label={value}
         />
       );
