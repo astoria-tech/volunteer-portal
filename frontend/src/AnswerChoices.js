@@ -53,5 +53,7 @@ export default function AnswerChoices({
             name={`${questionIdx}`}
           />
         );
+      default:
+        return null;
     }
 }
