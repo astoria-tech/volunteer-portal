@@ -1,0 +1,13 @@
+.MuiFormControlLabel-label {
+  background: #e0e0e0;
+  padding: 2px 8px;
+  border-radius: 16px;
+}
+
+.MuiFormControlLabel-label.MuiTypography-body1 {
+  font-size: 13px;
+}
+
+.MuiFormControlLabel-root {
+  margin-bottom: -10px;
+}

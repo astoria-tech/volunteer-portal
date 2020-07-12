@@ -2,6 +2,7 @@ import React from 'react';
 import './App.css';
 
 import SignIn from './SignIn';
+import Form from './Form';
 
 function App() {
   return (
