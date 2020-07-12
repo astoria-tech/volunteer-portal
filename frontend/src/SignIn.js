@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect } from "react";
 import isEmail from "validator/lib/isEmail";
 import { parsePhoneNumberFromString } from "libphonenumber-js";
 import Button from "@material-ui/core/Button";
@@ -37,31 +37,54 @@ export default function SignIn() {
   const errorMessage = error
     ? "Please enter a valid Email Address or Phone Number"
     : "";
+
+  useEffect(()=>{
+    fetch('/api/v1/initial')
+    .then(res=>{
+      if(res.status===302){
+        // redirect past login page
+      }
+    })
+  }); 
   const handleChange = (event) => {
     setValue(event.target.value);
   };
   const handleSubmit = (event) => {
     event.preventDefault();
-
-    // test API call
-    fetch('/api/v1/')
-      .then(res => res.json())
-      .then(data => console.log(data.greeting))
+    let authMethod=''
 
     if (isEmail(value)) {
       setError(false);
       console.log("valid email");
-      return;
+      authMethod='email'
     }
 
     const phoneNumber = parsePhoneNumberFromString(value, "US");
     if (phoneNumber && phoneNumber.isValid()) {
       setError(false);
       console.log("valid phone number");
-      return;
+      authMethod='phone'
     }
 
-    setError(true);
+    if(!authMethod){
+      setError(true);
+    }
+
+    // test API call
+    if(!error){
+      fetch('/api/v1/auth',{
+        method:'POST',
+        headers:{
+          'content-type':'application/json',
+          accept:'application/json'
+        },
+        body:JSON.stringify({
+          [authMethod]:value
+        })
+      })
+        .then(r => r.json())
+        .then(data => console.log(data))
+    }
   };
 
   return (
