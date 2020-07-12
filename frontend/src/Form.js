@@ -5,13 +5,18 @@ import ListItem from "@material-ui/core/ListItem";
 import ListItemText from "@material-ui/core/ListItemText";
 
 import { questions } from "./formQuestions";
+import { formatData } from "./utils/formUtils";
 import AnswerChoices from "./AnswerChoices";
 
 import "./Form.css";
 
 export default function Form() {
   const { register, handleSubmit, setValue } = useForm();
-  const onSubmit = data => console.log('data', data);
+
+  const onSubmit = data => {
+    const formattedData = formatData(data, questions)
+    console.log('formatted data', formattedData);
+  }
 
   const formQuestions = questions.map((question, idx) => {
     const {

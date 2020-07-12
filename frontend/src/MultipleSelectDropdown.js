@@ -1,4 +1,4 @@
-import React, { useState, useEffect, useRef } from "react";
+import React, { useState, useRef } from "react";
 import "./MultipleSelectDropdown.css";
 import Button from "@material-ui/core/Button";
 import Menu from "@material-ui/core/Menu";
