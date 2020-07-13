@@ -43,8 +43,7 @@ app.post('/api/v1/auth', async (req, res) => {
 app.get('/api/v1/auth/:hash', (req, res) => {
   const recordID = decryptHash(req.params.hash);
   res.cookie('jwt', generateToken(recordID));
-  res.send(302);
-  // redirect to main page
+  res.redirect('http://localhost:3000');
 });
 
 app.get('/api/v1/airtable', (req, res) => {

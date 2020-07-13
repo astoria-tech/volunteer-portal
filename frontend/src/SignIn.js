@@ -38,14 +38,6 @@ export default function SignIn() {
     ? "Please enter a valid Email Address or Phone Number"
     : "";
 
-  useEffect(()=>{
-    fetch('/api/v1/initial')
-    .then(res=>{
-      if(res.status===302){
-        // redirect past login page
-      }
-    })
-  }); 
   const handleChange = (event) => {
     setValue(event.target.value);
   };
