@@ -1,10 +1,10 @@
-import React from "react";
+import React, {useEffect, useState } from "react";
 import { useForm } from "react-hook-form";
 import List from "@material-ui/core/List";
 import ListItem from "@material-ui/core/ListItem";
 import ListItemText from "@material-ui/core/ListItemText";
 
-import { questions } from "./formQuestions";
+import { questions, questionsWithBlankAnswers } from "./formQuestions";
 import { formatData } from "./utils/formUtils";
 import AnswerChoices from "./AnswerChoices";
 
@@ -12,11 +12,26 @@ import "./Form.css";
 
 export default function Form() {
   const { register, handleSubmit, setValue } = useForm();
+  const [formData, setFormData] = useState(questionsWithBlankAnswers());
 
   const onSubmit = data => {
     const formattedData = formatData(data, questions)
     console.log('formatted data', formattedData);
   }
+
+  useEffect(() => {
+    fetch("/api/v1/airtable/")
+      .then((res) => res.json())
+      .then((result) => {
+        const prefilledData = { ...formData };
+        for (let field in result.fields) {
+          if (prefilledData[field] === "" || prefilledData[field]) {
+            prefilledData[field] = result.fields[field];
+          }
+        }
+        console.log(prefilledData)
+      });
+  }, [])
 
   const formQuestions = questions.map((question, idx) => {
     const {
@@ -45,6 +60,7 @@ export default function Form() {
       </ListItem>
     );
   });
+
   return (
     <div className="form">
       <h2>Astoria Mutual Aid Network • Volunteer Form •</h2>
