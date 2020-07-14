@@ -1,5 +1,4 @@
 const Airtable = require('airtable');
-const { generateLink } = require('./token');
 const config = require('./config');
 
 const base = new Airtable({ apiKey: config.AIRTABLE_API_KEY }).base(
@@ -25,7 +24,7 @@ const checkForUser = async (inputObj, callback) => {
       })
       .eachPage((records, nextPage) => {
         if (records[0]) {
-          callback(records[0].fields['Record ID']);
+          callback(records[0].id);
           return;
         }
         console.log('no record found');
