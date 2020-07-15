@@ -12,7 +12,7 @@ import "./Form.css";
 
 export default function Form() {
   const { register, handleSubmit, setValue } = useForm();
-  const [formData, setFormData] = useState(questionsWithBlankAnswers());
+  const [formData, setFormData] = useState(null);
 
   const onSubmit = data => {
     const formattedData = formatData(data, questions)
@@ -23,7 +23,7 @@ export default function Form() {
     fetch("/api/v1/airtable/")
       .then((res) => res.json())
       .then((result) => {
-        const prefilledData = { ...formData };
+        const prefilledData = questionsWithBlankAnswers();
         for (let field in result.fields) {
           if (prefilledData[field] === "" || prefilledData[field]) {
             prefilledData[field] = result.fields[field];
@@ -43,26 +43,29 @@ export default function Form() {
       fieldType
     } = question;
 
-    const answers = formData[fieldName];
-
-    return (
-      <ListItem key={idx} className="list-item">
-        <ListItemText
-          className={required ? "required-list-item" : ""}
-          primary={title}
-          secondary={description ? description : null}
-        />
-        <AnswerChoices
-          answers={answers}
-          questionIdx={idx}
-          fieldType={fieldType.type}
-          possibleValues={possibleValues}
-          showAs={fieldType.showAs}
-          setValue={setValue}
-          register={register}
-        />
-      </ListItem>
-    );
+    const answers = formData ? formData[fieldName] : null;
+    if (formData) {
+      return (
+        <ListItem key={idx} className="list-item">
+          <ListItemText
+            className={required ? "required-list-item" : ""}
+            primary={title}
+            secondary={description ? description : null}
+          />
+          <AnswerChoices
+            answers={answers}
+            questionIdx={idx}
+            fieldType={fieldType.type}
+            possibleValues={possibleValues}
+            showAs={fieldType.showAs}
+            setValue={setValue}
+            register={register}
+          />
+        </ListItem>
+      );
+    } else {
+      return null;
+    }
   });
 
   return (
