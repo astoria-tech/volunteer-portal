@@ -4,7 +4,8 @@ import TextField from '@material-ui/core/TextField';
 import SingleSelect from "./SingleSelect";
 import MultipleSelect from "./MultipleSelect";
 
-export default function AnswerChoices({ 
+export default function AnswerChoices({
+    answers,
     fieldType,
     possibleValues, 
     showAs, 
@@ -16,6 +17,7 @@ export default function AnswerChoices({
       case "Single select":
         return (
           <SingleSelect
+            answers={answers}
             possibleValues={possibleValues}
             showAs={showAs}
             setValue={setValue}
@@ -26,6 +28,7 @@ export default function AnswerChoices({
       case "Multiple select":
         return (
           <MultipleSelect
+            answers={answers}
             possibleValues={possibleValues}
             showAs={showAs}
             setValue={setValue}
