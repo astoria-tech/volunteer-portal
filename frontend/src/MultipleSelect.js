@@ -8,6 +8,7 @@ import MultipleSelectDropdown from "./MultipleSelectDropdown";
 import './MultipleSelect.css';
 
 export default function MultipleSelect({
+  answers,
   possibleValues,
   showAs,
   questionIdx,
@@ -17,8 +18,11 @@ export default function MultipleSelect({
   let display;
 
   if (showAs === "Dropdown") {
+    const options = possibleValues.filter(value => !answers.includes(value))
+
     display = <MultipleSelectDropdown
-      options={possibleValues}
+      answers={answers}
+      options={options}
       setValue={setValue}
       questionIdx={questionIdx}
     />;
