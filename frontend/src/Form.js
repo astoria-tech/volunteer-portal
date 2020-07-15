@@ -29,18 +29,21 @@ export default function Form() {
             prefilledData[field] = result.fields[field];
           }
         }
-        console.log(prefilledData)
+        setFormData(prefilledData)
       });
   }, [])
 
   const formQuestions = questions.map((question, idx) => {
     const {
       title,
+      fieldName,
       description,
       required,
       possibleValues,
       fieldType
     } = question;
+
+    const answers = formData[fieldName];
 
     return (
       <ListItem key={idx} className="list-item">
@@ -50,6 +53,7 @@ export default function Form() {
           secondary={description ? description : null}
         />
         <AnswerChoices
+          answers={answers}
           questionIdx={idx}
           fieldType={fieldType.type}
           possibleValues={possibleValues}
