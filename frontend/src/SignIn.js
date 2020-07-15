@@ -1,4 +1,4 @@
-import React, { useEffect } from "react";
+import React from "react";
 import isEmail from "validator/lib/isEmail";
 import { parsePhoneNumberFromString } from "libphonenumber-js";
 import Button from "@material-ui/core/Button";

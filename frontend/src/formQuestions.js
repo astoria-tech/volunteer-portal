@@ -5,10 +5,11 @@ const questions = [
     description: null,
     fieldType: {
       type: "Single line text",
-      showAs: null
+      showAs: null,
     },
     possibleValues: null,
-    required: true
+    required: true,
+    answer: "",
   },
   {
     title:
@@ -19,10 +20,11 @@ const questions = [
       "Not every COVID-19 carrier is symptomatic, and we cannot completely eliminate risk. With that in mind, we have implemented the following safety guidelines to minimize any potential transmission of the novel coronavirus.  \n\nDo you affirm as a volunteer that you:\n\n- Have not traveled out of the country in the last 14 days\n- Are not exhibiting any signs of compromised health (e.g. runny nose, cough, fever, etc.)\n- Have not come in contact with someone who has tested positive for COVID-19 in the last 14 days \n- Have been practicing social distancing",
     fieldType: {
       type: "Single select",
-      showAs: "List"
+      showAs: "List",
     },
     possibleValues: ["Yes", "No"],
-    required: true
+    required: true,
+    answer: "",
   },
   {
     title:
@@ -33,10 +35,11 @@ const questions = [
       "If possible, please wear latex/rubber gloves during deliveries. We also recommend that volunteers avoid touching unnecessary items and utilize a self-checkout option if available. \n\nVolunteers are additionally requested to take every CDC-approved safety precaution, including:\n- Washing hands frequently with soap and water for a minimum of 20 seconds or using hand sanitizer\n- Refraining from touching their face after having been outside\n- Sneezing or coughing into their elbow\n- Practicing “social distancing” -- staying indoors, avoiding crowds, staying 6 feet away from other people if you have to go outside",
     fieldType: {
       type: "Single select",
-      showAs: "List"
+      showAs: "List",
     },
     possibleValues: ["Yes", "No"],
-    required: true
+    required: true,
+    answer: "",
   },
   {
     title:
@@ -47,10 +50,11 @@ const questions = [
       "Volunteers make as minimal contact with the recipient as possible upon delivery:\n- They will place items at the door and knock/ring the doorbell and/or call the recipient to inform them that their order has been delivered.\n- If items have not already been paid for, payment to the volunteer will be exchanged either via cash, check, or Paypal/Venmo/Cash App/Zelle.",
     fieldType: {
       type: "Single select",
-      showAs: "List"
+      showAs: "List",
     },
     possibleValues: ["Yes", "No"],
-    required: true
+    required: true,
+    answer: "",
   },
   {
     title:
@@ -61,10 +65,11 @@ const questions = [
       "You can see the Community Agreements here: https://docs.google.com/document/d/1GDPZ0d_UEmXKICwNSUnnp78mNZzQNFFbnmz7F-UDhsM/edit?usp=sharing",
     fieldType: {
       type: "Single select",
-      showAs: "List"
+      showAs: "List",
     },
     possibleValues: ["Yes", "No"],
-    required: true
+    required: true,
+    answer: "",
   },
   {
     title: "First Name",
@@ -72,10 +77,11 @@ const questions = [
     description: null,
     fieldType: {
       type: "Single line text",
-      showAs: null
+      showAs: null,
     },
     possibleValues: null,
-    required: true
+    required: true,
+    answer: "",
   },
   {
     title: "Last Name",
@@ -83,10 +89,11 @@ const questions = [
     description: null,
     fieldType: {
       type: "Single line text",
-      showAs: null
+      showAs: null,
     },
     possibleValues: null,
-    required: false
+    required: false,
+    answer: "",
   },
   {
     title: "Preferred Pronouns",
@@ -94,10 +101,11 @@ const questions = [
     description: null,
     fieldType: {
       type: "Single line text",
-      showAs: null
+      showAs: null,
     },
     possibleValues: null,
-    required: true
+    required: true,
+    answer: "",
   },
   {
     title: "Preferred Method of Contact",
@@ -105,10 +113,11 @@ const questions = [
     description: null,
     fieldType: {
       type: "Multiple select",
-      showAs: "List"
+      showAs: "List",
     },
     possibleValues: ["Text Message", "Email", "Phone Call"],
-    required: false
+    required: false,
+    answer: [],
   },
   {
     title: "Please provide your contact phone number:",
@@ -116,10 +125,11 @@ const questions = [
     description: null,
     fieldType: {
       type: "Phone number",
-      showAs: null
+      showAs: null,
     },
     possibleValues: null,
-    required: true
+    required: true,
+    answer: "",
   },
   {
     title: "Full Street address (You can leave out your apartment/unit.)",
@@ -128,10 +138,11 @@ const questions = [
       "We work on a geo-location basis connecting neighbors as close together as possible. \n\nThis will help us map our support across this network and connect volunteers to hyper local needs. This information will only be used in connecting you to local volunteer opportunities. We will not use/sell/exploit this information in any way! ",
     fieldType: {
       type: "Single line text",
-      showAs: null
+      showAs: null,
     },
     possibleValues: null,
-    required: true
+    required: true,
+    answer: "",
   },
   {
     title:
@@ -141,15 +152,16 @@ const questions = [
     description: null,
     fieldType: {
       type: "Multiple select",
-      showAs: "List"
+      showAs: "List",
     },
     possibleValues: [
       "Yes, I have a car",
       "Yes, I have a bike (can transport SMALL packages)",
       "Yes, I have a bike (can transport LARGE packages)",
-      "No, I do not have private tranpsortation"
+      "No, I do not have private tranpsortation",
     ],
-    required: false
+    required: false,
+    answer: [],
   },
   {
     title: "Times of day you are generally available *",
@@ -157,10 +169,11 @@ const questions = [
     description: null,
     fieldType: {
       type: "Multiple select",
-      showAs: "List"
+      showAs: "List",
     },
     possibleValues: ["Morning", "Midday", "Evening"],
-    required: true
+    required: true,
+    answer: [],
   },
   {
     title: "I can provide the following ad hoc support (non-binding)",
@@ -169,7 +182,7 @@ const questions = [
       "If you're able to pick up groceries, please ALSO register as a volunteer with Invisible Hands Deliver at this link: https://www.invisiblehandsdeliver.com/volunteer",
     fieldType: {
       type: "Multiple select",
-      showAs: "List"
+      showAs: "List",
     },
     possibleValues: [
       "Meal prep",
@@ -181,9 +194,10 @@ const questions = [
       "Pet-sitting/walking/feeding",
       "Translation",
       "Monetary donation",
-      "Donation of other kind"
+      "Donation of other kind",
     ],
-    required: false
+    required: false,
+    answer: [],
   },
   {
     title:
@@ -193,16 +207,17 @@ const questions = [
     description: null,
     fieldType: {
       type: "Multiple select",
-      showAs: "List"
+      showAs: "List",
     },
     possibleValues: [
       "A “care pod” to support a local neighbor on a weekly basis",
       "One of our administrative teams (community, fundraising, operations, etc.)",
       "Our communications team (social media, PR, newsletters, etc.)",
       "Our dispatching team to field calls & requests from neighbors (with weekly shifts)",
-      "Subject-specific working groups (housing assistance, disability rights, distance learning, etc.)"
+      "Subject-specific working groups (housing assistance, disability rights, distance learning, etc.)",
     ],
-    required: false
+    required: false,
+    answer: [],
   },
   {
     title: "Please select any language(s) you have verbal fluency with:",
@@ -210,7 +225,7 @@ const questions = [
     description: null,
     fieldType: {
       type: "Multiple select",
-      showAs: "Dropdown"
+      showAs: "Dropdown",
     },
     possibleValues: [
       "American Sign Language (ASL)",
@@ -240,9 +255,10 @@ const questions = [
       "Tagalog",
       "Turkish",
       "Urdu",
-      "Vietnamese"
+      "Vietnamese",
     ],
-    required: false
+    required: false,
+    answer: [],
   },
   {
     title:
@@ -252,10 +268,11 @@ const questions = [
     description: null,
     fieldType: {
       type: "Single line text",
-      showAs: null
+      showAs: null,
     },
     possibleValues: null,
-    required: false
+    required: false,
+    answer: "",
   },
   {
     title:
@@ -264,7 +281,7 @@ const questions = [
     description: null,
     fieldType: {
       type: "Multiple select",
-      showAs: "Dropdown"
+      showAs: "Dropdown",
     },
     possibleValues: [
       "Benefits Applications (SNAP, etc.)",
@@ -293,9 +310,10 @@ const questions = [
       "Tax Assistance + Accounting",
       "Tech + Engineering",
       "Undocumented Community Rights + Resources",
-      "Unemployment Insurance Assistance"
+      "Unemployment Insurance Assistance",
     ],
-    required: false
+    required: false,
+    answer: [],
   },
   {
     title:
@@ -305,10 +323,11 @@ const questions = [
     description: null,
     fieldType: {
       type: "Single line text",
-      showAs: null
+      showAs: null,
     },
     possibleValues: null,
-    required: false
+    required: false,
+    answer: "",
   },
   {
     title: "Do you have access to personal protective equipment (PPE)?",
@@ -316,10 +335,11 @@ const questions = [
     description: null,
     fieldType: {
       type: "Single select",
-      showAs: "List"
+      showAs: "List",
     },
     possibleValues: ["Yes", "No"],
-    required: false
+    required: false,
+    answer: "",
   },
   {
     title: "Do you have any extra sanitizing/cleaning supplies to donate?",
@@ -327,10 +347,11 @@ const questions = [
     description: null,
     fieldType: {
       type: "Single select",
-      showAs: "List"
+      showAs: "List",
     },
     possibleValues: ["Yes", "No"],
-    required: false
+    required: false,
+    answer: "",
   },
   {
     title:
@@ -340,10 +361,11 @@ const questions = [
     description: null,
     fieldType: {
       type: "Single line text",
-      showAs: null
+      showAs: null,
     },
     possibleValues: null,
-    required: false
+    required: false,
+    answer: "",
   },
   {
     title: "Anything else you would like to add?",
@@ -351,11 +373,20 @@ const questions = [
     description: null,
     fieldType: {
       type: "Single line text",
-      showAs: null
+      showAs: null,
     },
     possibleValues: null,
-    required: false
-  }
+    required: false,
+    answer: "",
+  },
 ];
 
-export { questions };
+const questionsWithBlankAnswers = () => {
+  const questionObject = {};
+  questions.forEach(question => {
+    questionObject[question.fieldName] = question.answer;
+  })
+  return questionObject;
+}
+
+export { questions, questionsWithBlankAnswers };

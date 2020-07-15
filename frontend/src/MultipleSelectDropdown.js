@@ -6,13 +6,14 @@ import MenuItem from "@material-ui/core/MenuItem";
 import Chip from "@material-ui/core/Chip";
 
 export default function MultiSelectDropdown({
+  answers,
   options,
   setValue,
   questionIdx
 }) {
   const [anchorEl, setAnchorEl] = useState(null);
-  const [menuOptions, _setMenuOptions] = useState([...options]);
-  const [selectedOptions, setSelectedOptions] = useState([]);
+  const [menuOptions, _setMenuOptions] = useState(options);
+  const [selectedOptions, setSelectedOptions] = useState(answers);
 
   const menuRef = useRef(menuOptions);
 
@@ -31,7 +32,7 @@ export default function MultiSelectDropdown({
     const newOptions = selectedOptions.concat([option]);
     setSelectedOptions(newOptions);
     const optionIdx = options.indexOf(option);
-    setValue(`${questionIdx}-${optionIdx}`, true)
+    setValue(`${questionIdx}-${optionIdx}`, true);
     setAnchorEl(null);
   };
 
