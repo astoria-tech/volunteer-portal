@@ -15,7 +15,17 @@ export default function MultipleSelect({
   register,
   setValue
 }) {
+  const [state, setState] = React.useState(answers);
   let display;
+  const handleChange = (event) => {
+    let newState;
+    if (event.target.checked) {
+      newState = [...state, event.target.value];
+    } else {
+      newState = state.filter(option => option !== event.target.value);
+    }
+    setState(newState);
+  }
 
   if (showAs === "Dropdown") {
     const options = possibleValues.filter(value => !answers.includes(value))
@@ -32,7 +42,13 @@ export default function MultipleSelect({
     let options = possibleValues.map((value, idx) => {
       return (
         <ListItem className="multi-select-item" key={value}>
-          <Checkbox inputRef={register} name={`${questionIdx}-${idx}`}/>
+          <Checkbox
+            inputRef={register}
+            onChange={handleChange}
+            name={`${questionIdx}-${idx}`}
+            checked={state.includes(value)}
+            value={value}
+          />
           <Chip size="small" label={value} />
         </ListItem>
       );
