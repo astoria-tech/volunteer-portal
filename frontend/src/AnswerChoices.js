@@ -39,6 +39,7 @@ export default function AnswerChoices({
       case "Single line text":
         return (
           <TextField
+            defaultValue={answers}
             className="text-field"
             variant="outlined"
             size="small"
@@ -49,6 +50,7 @@ export default function AnswerChoices({
       case "Phone number": 
         return (
           <TextField
+            defaultValue={answers}
             className="text-field"
             variant="outlined"
             size="small"
