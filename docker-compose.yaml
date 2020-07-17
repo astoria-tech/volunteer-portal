@@ -18,6 +18,12 @@ services:
     labels:
       shipyard.route: '/api'
     build: 'backend'
+    environment:
+      AIRTABLE_API_KEY: ${AIRTABLE_API_KEY}
+      AIRTABLE_BASE_ID: ${AIRTABLE_BASE_ID}
+      CRYPTO_KEY: ${CRYPTO_KEY}
+      JWT_PUBLIC_KEY_BASE64: ${JWT_PUBLIC_KEY_BASE64}
+      JWT_PRIVATE_KEY_BASE64: ${JWT_PRIVATE_KEY_BASE64}
     volumes:
       - './backend/src:/srv/src'
     ports:
