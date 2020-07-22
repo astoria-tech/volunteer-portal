@@ -1,22 +1,39 @@
 import React, {useEffect, useState } from "react";
 import { useForm } from "react-hook-form";
 import List from "@material-ui/core/List";
-import ListItem from "@material-ui/core/ListItem";
-import ListItemText from "@material-ui/core/ListItemText";
 
 import { questions, questionsWithBlankAnswers } from "./formQuestions";
 import { formatData } from "./utils/formUtils";
-import AnswerChoices from "./AnswerChoices";
+import Question from "./Question";
 
 import "./Form.css";
 
 export default function Form() {
   const { register, handleSubmit, setValue } = useForm();
   const [formData, setFormData] = useState(null);
+  const [submitted, setSubmitted] = useState(false);
 
-  const onSubmit = data => {
-    const formattedData = formatData(data, questions)
-    console.log('formatted data', formattedData);
+  async function postData(url = '', data = {}) {
+    const response = await fetch(url, {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json'
+      },
+      body: JSON.stringify(data)
+    });
+
+    return response.json();
+  }
+
+  const onSubmit = (data, e) => {
+    e.preventDefault();
+    const formattedData = formatData(data, questions);
+    postData("/api/v1/airtable/", formattedData)
+      .then(data => {
+        if (data.updated) {
+          setSubmitted(true);
+        }
+      });
   }
 
   useEffect(() => {
@@ -34,45 +51,29 @@ export default function Form() {
   }, [])
 
   const formQuestions = questions.map((question, idx) => {
-    const {
-      title,
-      fieldName,
-      description,
-      required,
-      possibleValues,
-      fieldType
-    } = question;
-
-    const answers = formData ? formData[fieldName] : null;
-    if (formData) {
-      return (
-        <ListItem key={idx} className="list-item">
-          <ListItemText
-            className={required ? "required-list-item" : ""}
-            primary={title}
-            secondary={description ? description : null}
-          />
-          <AnswerChoices
-            answers={answers}
-            questionIdx={idx}
-            fieldType={fieldType.type}
-            possibleValues={possibleValues}
-            showAs={fieldType.showAs}
-            setValue={setValue}
-            register={register}
-          />
-        </ListItem>
-      );
-    } else {
-      return null;
-    }
+    return (
+      <Question
+        key={idx}
+        question={question}
+        idx={idx}
+        formData={formData}
+        setValue={setValue}
+        register={register}
+      />
+    )
   });
 
-  return (
-    <div className="form">
-      <h2>Astoria Mutual Aid Network • Volunteer Form •</h2>
-      <List id="form-list">{formQuestions}</List>
-      <button onClick={handleSubmit(onSubmit)}>Submit</button>
-    </div>
-  );
+  if (submitted) {
+    return <p>Your info has been updated</p>;
+  } else if (formData) {
+    return (
+      <div className="form">
+        <h2>Astoria Mutual Aid Network • Volunteer Form •</h2>
+        <List id="form-list">{formQuestions}</List>
+        <button onClick={handleSubmit(onSubmit)}>Submit</button>
+      </div>
+    )
+  } else {
+    return <p>Loading...</p>;
+  }
 }
