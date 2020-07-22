@@ -55,8 +55,8 @@ app.get('/api/v1/airtable', (req, res) => {
 app.post('/api/v1/airtable', (req, res) => {
   const { jwt } = req.cookies;
   const decoded = verifyToken(jwt);
-  const updatedObject = req.body.newObject;
-  updateRecord(decoded.recordID, updatedObject);
+  const updatedObject = req.body;
+  updateRecord(decoded.recordID, updatedObject, res);
 });
 
 app.listen(port, host, () =>

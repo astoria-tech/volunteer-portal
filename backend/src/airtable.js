@@ -40,13 +40,19 @@ const getRecord = (recordID, res) => {
     res.send({ ...record });
   });
 };
-const updateRecord = (recordID, updatedObject) => {
-  base(config.AIRTABLE_VOLUNTEERS_TABLE_NAME).find(recordID, (err, record) => {
-    Object.keys(record).forEach(key => {
-      if (record.get(key) !== updatedObject[`${key}`]) {
-        record.patchUpdate({ [key]: updatedObject[`${key}`] });
-      }
-    });
+
+const updateRecord = (recordID, updatedObject, res) => {
+  base(config.AIRTABLE_VOLUNTEERS_TABLE_NAME).update(
+    recordID,
+    updatedObject,
+    function (err, record) {
+    if (err) {
+      console.error(err);
+      return;
+    }
+    console.log(`Updated record for: ${record.get('Full Name')}`);
+    res.send({updated: true});
   });
 };
+
 module.exports = { checkForUser, getRecord, updateRecord };
