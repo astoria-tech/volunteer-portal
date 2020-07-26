@@ -28,11 +28,12 @@ export default function MultipleSelect({
   }
 
   if (showAs === "Dropdown") {
-    const options = possibleValues.filter(value => !answers.includes(value))
+    const menuOptions = possibleValues.filter(value => !answers.includes(value));
 
     display = <MultipleSelectDropdown
+      possibleValues={possibleValues}
       answers={answers}
-      options={options}
+      options={menuOptions}
       setValue={setValue}
       questionIdx={questionIdx}
     />;
