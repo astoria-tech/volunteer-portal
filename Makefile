@@ -11,3 +11,7 @@ clean:
 
 run:
 	docker-compose up
+
+generate-keys:
+	openssl genrsa -out private.key
+	openssl rsa -in private.key -pubout -out public.key

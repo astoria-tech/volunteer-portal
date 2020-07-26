@@ -3,8 +3,8 @@ const fs = require('fs');
 const Cryptr = require('cryptr');
 const config = require('./config');
 
-const privateKey = fs.readFileSync('private.key');
-const publicKey = fs.readFileSync('public.pub');
+const publicKey = Buffer.from(config.JWT_PUBLIC_KEY_BASE64, 'base64');
+const privateKey = Buffer.from(config.JWT_PRIVATE_KEY_BASE64, 'base64');
 const cryptr = new Cryptr(config.CRYPTO_KEY);
 
 const generateToken = (recordID = null) => {

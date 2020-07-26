@@ -2,7 +2,7 @@ const Airtable = require('airtable');
 const config = require('./config');
 
 const base = new Airtable({ apiKey: config.AIRTABLE_API_KEY }).base(
-  config.baseId
+  config.AIRTABLE_BASE_ID
 );
 
 const checkForUser = async (inputObj, callback) => {
