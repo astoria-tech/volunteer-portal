@@ -21,7 +21,7 @@ export default function MultiSelectDropdown({
     if (!loadedAnswers) {
       answers.forEach(answer => {
         const optionIdx = possibleValues.indexOf(answer);
-        setValue(`${questionIdx}-${optionIdx}`, true);
+        setValue(`${questionIdx}-${optionIdx}`, answer);
         setLoadedAnswers(true);
       });
     }
@@ -44,7 +44,7 @@ export default function MultiSelectDropdown({
     const newOptions = selectedOptions.concat([option]);
     setSelectedOptions(newOptions);
     const optionIdx = possibleValues.indexOf(option);
-    setValue(`${questionIdx}-${optionIdx}`, true);
+    setValue(`${questionIdx}-${optionIdx}`, option);
     setAnchorEl(null);
   };
 
