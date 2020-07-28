@@ -10,7 +10,8 @@ export default function Question(props) {
     idx, 
     formData,
     setValue,
-    register 
+    register,
+    errors
   } = props;
 
   const {
@@ -33,12 +34,14 @@ export default function Question(props) {
         />
         <AnswerChoices
           answers={answers}
+          required={required}
           questionIdx={idx}
           fieldType={fieldType.type}
           possibleValues={possibleValues}
           showAs={fieldType.showAs}
           setValue={setValue}
           register={register}
+          errors={errors}
         />
       </ListItem>
     );
