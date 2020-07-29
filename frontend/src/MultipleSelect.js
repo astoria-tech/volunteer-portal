@@ -46,16 +46,16 @@ export default function MultipleSelect({
   if (showAs === "List") {
     let options = possibleValues.map((value) => {
       return (
-          <ListItem className="multi-select-item" key={value}>
-            <Checkbox
-              inputRef={required ? register({required: true}) : register}
-              onChange={handleChange}
-              name={`${questionIdx}`}
-              checked={state.includes(value)}
-              value={value}
-            />
-            <Chip size="small" label={value} />
-          </ListItem>
+        <ListItem className="multi-select-item" key={value}>
+          <Checkbox
+            inputRef={required ? register({required: true}) : register}
+            onChange={handleChange}
+            name={`${questionIdx}`}
+            checked={state.includes(value)}
+            value={value}
+          />
+          <Chip size="small" label={value} />
+        </ListItem>
       );
     });
     return (
