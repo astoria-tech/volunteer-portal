@@ -9,7 +9,7 @@ import Question from "./Question";
 import "./Form.css";
 
 export default function Form() {
-  const { register, handleSubmit, setValue } = useForm();
+  const { register, handleSubmit, setValue, errors } = useForm();
   const [formData, setFormData] = useState(null);
   const [submitted, setSubmitted] = useState(false);
 
@@ -59,6 +59,7 @@ export default function Form() {
         formData={formData}
         setValue={setValue}
         register={register}
+        errors={errors}
       />
     )
   });

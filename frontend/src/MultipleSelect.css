@@ -1,3 +1,7 @@
 .multi-select-item {
   margin-bottom: -25px;
 }
+
+.error {
+  color: red;
+}

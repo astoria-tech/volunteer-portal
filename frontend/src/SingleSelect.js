@@ -8,6 +8,8 @@ import './SingleSelect.css';
 
 export default function SingleSelect({
   answers,
+  required,
+  errors,
   possibleValues,
   showAs,
   register,
@@ -26,8 +28,9 @@ export default function SingleSelect({
         <FormControlLabel
           key={idx}
           value={value}
-          control={<Radio inputRef={register} name={`${questionIdx}`}/>}
+          control={<Radio inputRef={required ? register({required: true}) : register} name={`${questionIdx}`}/>}
           label={value}
+          defaultValue={required ? "Yes" : "No"}
         />
       );
     });
@@ -38,6 +41,7 @@ export default function SingleSelect({
       <RadioGroup value={value} onChange={handleChange}>
         {options}
       </RadioGroup>
+      {errors[`${questionIdx}`] && <p className="error">Please select an option</p>}
     </FormControl>
   );
 }
