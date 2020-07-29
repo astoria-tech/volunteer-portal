@@ -6,17 +6,14 @@ export const formatData = (data, questions) => {
       formattedData[question.fieldName] = data[idx];
     } else {
       const [questionIdx, choiceIdx] = idx.split("-");
-      const { fieldName, possibleValues } = questions[questionIdx]
-      const answer = possibleValues[choiceIdx]
+      const { fieldName, possibleValues } = questions[questionIdx];
+      const answer = possibleValues[choiceIdx];
       if (!formattedData[fieldName]) {
-        if (data[idx]) {
-          formattedData[fieldName] = [answer];
-        }
-      } else {
-        if (data[idx]) {
-          const newValue = formattedData[fieldName].concat([answer])
-          formattedData[fieldName] = newValue;
-        }
+        formattedData[fieldName] = [];
+      }
+      if (data[idx]) {
+        const newValue = formattedData[fieldName].concat([answer]);
+        formattedData[fieldName] = newValue;
       }
     }
   };

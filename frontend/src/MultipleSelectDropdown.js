@@ -1,4 +1,4 @@
-import React, { useState, useRef } from "react";
+import React, { useState, useRef, useEffect } from "react";
 import "./MultipleSelectDropdown.css";
 import Button from "@material-ui/core/Button";
 import Menu from "@material-ui/core/Menu";
@@ -6,6 +6,7 @@ import MenuItem from "@material-ui/core/MenuItem";
 import Chip from "@material-ui/core/Chip";
 
 export default function MultiSelectDropdown({
+  possibleValues,
   answers,
   options,
   setValue,
@@ -13,7 +14,18 @@ export default function MultiSelectDropdown({
 }) {
   const [anchorEl, setAnchorEl] = useState(null);
   const [menuOptions, _setMenuOptions] = useState(options);
+  const [loadedAnswers, setLoadedAnswers] = useState(false);
   const [selectedOptions, setSelectedOptions] = useState(answers);
+
+  useEffect(() => {
+    if (!loadedAnswers) {
+      answers.forEach(answer => {
+        const optionIdx = possibleValues.indexOf(answer);
+        setValue(`${questionIdx}-${optionIdx}`, answer);
+        setLoadedAnswers(true);
+      });
+    }
+  })
 
   const menuRef = useRef(menuOptions);
 
@@ -31,8 +43,8 @@ export default function MultiSelectDropdown({
     setMenuOptions(newData);
     const newOptions = selectedOptions.concat([option]);
     setSelectedOptions(newOptions);
-    const optionIdx = options.indexOf(option);
-    setValue(`${questionIdx}-${optionIdx}`, true);
+    const optionIdx = possibleValues.indexOf(option);
+    setValue(`${questionIdx}-${optionIdx}`, option);
     setAnchorEl(null);
   };
 
@@ -44,11 +56,8 @@ export default function MultiSelectDropdown({
     const newMenuOptions = menuOptions.concat([option]).sort();
     setMenuOptions(newMenuOptions);
     const newSelectedOptions = selectedOptions
-      .filter(opt => {
-        return opt !== option;
-      })
-      .sort();
-    const optionIdx = options.indexOf(option);
+      .filter(opt => opt !== option);
+    const optionIdx = possibleValues.indexOf(option);
     setValue(`${questionIdx}-${optionIdx}`, false);
     setSelectedOptions(newSelectedOptions);
   };
