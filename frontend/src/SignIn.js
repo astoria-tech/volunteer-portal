@@ -43,39 +43,39 @@ export default function SignIn() {
   };
   const handleSubmit = (event) => {
     event.preventDefault();
-    let authMethod=''
+    let authMethod = "";
 
     if (isEmail(value)) {
       setError(false);
       console.log("valid email");
-      authMethod='email'
+      authMethod = "email";
     }
 
     const phoneNumber = parsePhoneNumberFromString(value, "US");
     if (phoneNumber && phoneNumber.isValid()) {
       setError(false);
       console.log("valid phone number");
-      authMethod='phone'
+      authMethod = "phone";
     }
 
-    if(!authMethod){
+    if (!authMethod) {
       setError(true);
     }
 
     // test API call
-    if(!error){
-      fetch('/api/v1/auth',{
-        method:'POST',
-        headers:{
-          'content-type':'application/json',
-          accept:'application/json'
+    if (!error) {
+      fetch("/api/v1/auth", {
+        method: "POST",
+        headers: {
+          "content-type": "application/json",
+          accept: "application/json",
         },
-        body:JSON.stringify({
-          [authMethod]:value
-        })
+        body: JSON.stringify({
+          [authMethod]: value,
+        }),
       })
-        .then(r => r.json())
-        .then(data => console.log(data))
+        .then((r) => r.json())
+        .then((data) => console.log(data));
     }
   };
 
