@@ -1,38 +1,103 @@
 .App {
+  padding: 0;
+  margin: 0;
   text-align: center;
-}
-
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
-}
-
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
-}
-
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
+  background: white;
   display: flex;
-  flex-direction: column;
+  flex-flow: column;
+  height: 100%;
+}
+
+.logo-image {
+  margin-top: 20px;
+  margin-bottom: 20px;
+}
+
+.header {
+  font-family: Poppins, sans-serif;
+  font-size: 44px;
+  font-weight: 800;
+}
+
+.header-container {
+  margin-bottom: -40px;
+  background: white;
+}
+
+.orange {
+  color: #ce805c;
+}
+
+.slate {
+  color: #587183;
+}
+
+.footer {
+  background: #587183;
+  flex-grow: 1;
+  display: flex;
+  flex-flow: column;
   align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
+  justify-content: space-between;
 }
 
-.App-link {
-  color: #61dafb;
+.footer-link-header {
+  font-family: Poppins, sans-serif;
+  color: #fff;
+  font-size: 20px;
+  line-height: 32px;
+  font-weight: 800;
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+.phone-number-link {
+  margin-top: 4px;
+  font-family: Poppins, sans-serif;
+  color: #fff;
+  font-size: 18px;
+  text-decoration: none;
+  cursor: pointer;
+}
+
+.div-block {
+  margin-right: 50px;
+  display: flex;
+  flex-flow: column;
+  align-items: flex-start;
+}
+
+.div-block:nth-of-type(3) {
+  margin-right: 200px;
+}
+
+.link-block {
+  margin-top: -6px;
+}
+
+.link-block a:first-of-type {
+  margin-right: 40px;
+}
+
+.footer-content {
+  width: 100%;
+  padding-top: 30px;
+  max-width: 1170px;
+  display: flex;
+  justify-content: flex-start;
+  align-items: flex-end;
+}
+
+.paragraph-4-copy {
+  color: #fff;
+  font-family: Poppins, sans-serif;
+  font-size: 16px;
+  line-height: 24px;
+  font-weight: 400;
+  width: 100%;
+  max-width: 1170px;
+  text-align: left;
+}
+
+.footer-logo {
+  width: 173px;
+  margin-right: 50px;
 }
