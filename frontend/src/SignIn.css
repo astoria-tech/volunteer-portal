@@ -1,0 +1,75 @@
+.signin-input {
+  width: 450px !important;
+  height: 80px !important;
+  font-family: Poppins, sans-serif !important;
+  font-size: 21px !important;
+  font-weight: 700 !important;
+  color: #333333 !important;
+  padding: 0 !important;
+  line-height: 1.42857143 !important;
+  border-radius: 0px !important;
+  background-color: white;
+}
+
+p {
+  line-height: 35px;
+  font-family: Poppins, sans-serif;
+  font-size: 24px;
+  color: #1a1b1f;
+  font-weight: 800;
+  color: #ce805c;
+  margin-bottom: 40px;
+  max-width: 630px;
+  text-align: left;
+}
+
+.submit {
+  height: 80px;
+  margin-top: 8px !important;
+  margin-bottom: 40px !important;
+  width: 450px !important;
+  border-radius: 0px !important;
+  color: #f7f2eb !important;
+  background-color: #587183 !important;
+  font-family: Poppins, sans-serif !important;
+  font-size: 21px !important;
+  font-weight: 800 !important;
+  text-transform: capitalize !important;
+}
+
+#emailOrPhoneNumber {
+  width: 450px !important;
+  font-size: 21px;
+  font-weight: 700;
+  height: 80px;
+  font-family: Poppins, sans-serif;
+  border-radius: 0px !important;
+}
+
+.signin-input .MuiOutlinedInput-root {
+  border-radius: 0px !important;
+  height: 80px;
+}
+
+.error {
+  margin-top: 40px !important;
+}
+
+#emailOrPhoneNumber-helper-text {
+  font-size: 16px;
+}
+
+.MuiOutlinedInput-root:hover .MuiOutlinedInput-notchedOutline {
+  border-color: #ce805c !important;
+}
+
+.MuiOutlinedInput-root.Mui-focused .MuiOutlinedInput-notchedOutline {
+  border-color: #587183 !important;
+}
+
+.link {
+  font-family: Poppins, sans-serif !important;
+  color:  #587183 !important;
+  font-size: 18px !important;
+  font-weight: 600 !important;
+}

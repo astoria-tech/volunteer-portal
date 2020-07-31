@@ -6,16 +6,21 @@ import CssBaseline from "@material-ui/core/CssBaseline";
 import TextField from "@material-ui/core/TextField";
 import Link from "@material-ui/core/Link";
 import Grid from "@material-ui/core/Grid";
-import Typography from "@material-ui/core/Typography";
 import { makeStyles } from "@material-ui/core/styles";
 import Container from "@material-ui/core/Container";
+
+import "./SignIn.css";
 
 const useStyles = makeStyles((theme) => ({
   paper: {
     marginTop: theme.spacing(8),
+    paddingTop: "20px",
+    paddingBottom: "50px",
     display: "flex",
     flexDirection: "column",
     alignItems: "center",
+    width: '100%',
+    background: '#f7f2eb',
   },
   avatar: {
     margin: theme.spacing(1),
@@ -24,9 +29,10 @@ const useStyles = makeStyles((theme) => ({
   form: {
     width: "100%", // Fix IE 11 issue.
     marginTop: theme.spacing(1),
-  },
-  submit: {
-    margin: theme.spacing(3, 0, 2),
+    borderRadius: '0px',
+    display: "flex",
+    flexDirection: "column",
+    alignItems: "center",
   },
 }));
 
@@ -82,52 +88,50 @@ export default function SignIn() {
   return (
     <Container
       component="main"
-      maxWidth="xs"
       onKeyPress={(event) => {
         if (event.key === "Enter") {
           handleSubmit(event);
         }
       }}
+      disableGutters
+      maxWidth={false}
     >
       <CssBaseline />
       <div className={classes.paper}>
-        <Typography component="h1" variant="h5" gutterBottom>
-          Astoria Mutual Aid Network Volunteer Portal
-        </Typography>
-        <br />
-        <Typography component="h2" gutterBottom>
+        <p>
           Enter your Email Address or Phone Number below to receive your login
           link
-        </Typography>
+        </p>
         <form className={classes.form} noValidate>
           <TextField
             error={error}
+            className="signin-input"
             helperText={errorMessage}
-            variant="outlined"
-            margin="normal"
             required
-            fullWidth
             id="emailOrPhoneNumber"
-            label="Email Address or Phone Number"
             name="emailOrPhoneNumber"
             autoFocus
+            placeholder="Email Address or Phone Number"
             value={value}
             onChange={handleChange}
+            variant="outlined"
           />
           <Button
             onClick={handleSubmit}
             fullWidth
             variant="contained"
             color="primary"
-            className={classes.submit}
+            className={ error ? "submit error" : "submit"}
           >
-            ENTER
+            Submit
           </Button>
-          <Grid container>
-            <Grid item>
+          <Grid container justify="center">
+            <Grid item >
               <Link
                 href="https://www.astoriamutualaid.com/give-help"
                 variant="body2"
+                className="link"
+                underline="always"
               >
                 {"Not a volunteer yet? Sign up here!"}
               </Link>
