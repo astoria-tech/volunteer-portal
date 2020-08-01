@@ -24,7 +24,7 @@ function App() {
       {token ? <Form />:<SignIn />}
       <div className="footer">
         <div className="footer-content">
-          <div class="div-block">
+          <div className="div-block">
             <img src="https://uploads-ssl.webflow.com/5ed01da8465a6b1be64f9b8e/5ed051930b4ead13225b7a8e_AMAN%20White%20Logo.svg" alt="" className="footer-logo" />
           </div>
           <div className="div-block">
@@ -38,16 +38,16 @@ function App() {
           <div className="div-block">
             <h1 className="footer-link-header">Social Media</h1>
             <div className="link-block">
-              <a href="https://www.facebook.com/AstoriaMutualAid/" target="_blank" className="link-block-5 w-inline-block">
+              <a href="https://www.facebook.com/AstoriaMutualAid/" target="_blank" rel="noopener noreferrer" className="link-block-5 w-inline-block">
                 <img src="https://uploads-ssl.webflow.com/5ed01da8465a6b1be64f9b8e/5ed4525cc6c978354ce44490_Icon-Facebook.svg" alt="" className="image-12" />
               </a>
-              <a href="https://www.instagram.com/astoria_mutual_aid/" target="_blank" className="link-block-6 w-inline-block">
+              <a href="https://www.instagram.com/astoria_mutual_aid/" target="_blank" rel="noopener noreferrer" className="link-block-6 w-inline-block">
                 <img src="https://uploads-ssl.webflow.com/5ed01da8465a6b1be64f9b8e/5ed4525c4b317b006b7de60e_Icon-Instagram.svg" alt="" className="image-13"/>
               </a>
             </div>
           </div>
         </div>
-        <p class="paragraph-4-copy">Please be aware of individuals or organizations claiming to be affiliated with Astoria Mutual Aid Network. Any and all correspondence from Astoria Mutual Aid Network should come directly from an email address with Astoriamutualaid@gmail.com or Team@astoriamutualaid.com</p>
+        <p className="paragraph-4-copy">Please be aware of individuals or organizations claiming to be affiliated with Astoria Mutual Aid Network. Any and all correspondence from Astoria Mutual Aid Network should come directly from an email address with Astoriamutualaid@gmail.com or Team@astoriamutualaid.com</p>
       </div>
     </div>
   );
