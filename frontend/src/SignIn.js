@@ -40,6 +40,8 @@ export default function SignIn() {
   const classes = useStyles();
   const [value, setValue] = React.useState("");
   const [error, setError] = React.useState(false);
+  const [submitted, setSubmitted] = React.useState(false);
+
   const errorMessage = error
     ? "Please enter a valid Email Address or Phone Number"
     : "";
@@ -47,6 +49,7 @@ export default function SignIn() {
   const handleChange = (event) => {
     setValue(event.target.value);
   };
+
   const handleSubmit = (event) => {
     event.preventDefault();
     let authMethod=''
@@ -66,10 +69,7 @@ export default function SignIn() {
 
     if(!authMethod){
       setError(true);
-    }
-
-    // test API call
-    if(!error){
+    } else if (!error){
       fetch('/api/v1/auth',{
         method:'POST',
         headers:{
@@ -80,8 +80,7 @@ export default function SignIn() {
           [authMethod]:value
         })
       })
-        .then(r => r.json())
-        .then(data => console.log(data))
+      setSubmitted(true)
     }
   };
 
@@ -98,46 +97,53 @@ export default function SignIn() {
     >
       <CssBaseline />
       <div className={classes.paper}>
-        <p>
-          Enter your Email Address or Phone Number below to receive your login
-          link
-        </p>
-        <form className={classes.form} noValidate>
-          <TextField
-            error={error}
-            className="signin-input"
-            helperText={errorMessage}
-            required
-            id="emailOrPhoneNumber"
-            name="emailOrPhoneNumber"
-            autoFocus
-            placeholder="Email Address or Phone Number"
-            value={value}
-            onChange={handleChange}
-            variant="outlined"
-          />
-          <Button
-            onClick={handleSubmit}
-            fullWidth
-            variant="contained"
-            color="primary"
-            className={ error ? "submit error" : "submit"}
-          >
-            Submit
-          </Button>
-          <Grid container justify="center">
-            <Grid item >
-              <Link
-                href="https://www.astoriamutualaid.com/give-help"
-                variant="body2"
-                className="link"
-                underline="always"
-              >
-                {"Not a volunteer yet? Sign up here!"}
-              </Link>
-            </Grid>
-          </Grid>
-        </form>
+        { submitted
+          ? <div className="submitted">
+              <p className="submitted-text">Your login link will be sent to you by email or text message momentarily.</p>
+            </div>
+          : <>
+              <p className="directions">
+                Enter your Email Address or Phone Number below to receive your login
+                link
+              </p>
+              <form className={classes.form} noValidate>
+                <TextField
+                  error={error}
+                  className="signin-input"
+                  helperText={errorMessage}
+                  required
+                  id="emailOrPhoneNumber"
+                  name="emailOrPhoneNumber"
+                  autoFocus
+                  placeholder="Email Address or Phone Number"
+                  value={value}
+                  onChange={handleChange}
+                  variant="outlined"
+                />
+                <Button
+                  onClick={handleSubmit}
+                  fullWidth
+                  variant="contained"
+                  color="primary"
+                  className={error ? "submit error" : "submit"}
+                >
+                  Submit
+              </Button>
+                <Grid container justify="center">
+                  <Grid item >
+                    <Link
+                      href="https://www.astoriamutualaid.com/give-help"
+                      variant="body2"
+                      className="link"
+                      underline="always"
+                    >
+                      {"Not a volunteer yet? Sign up here!"}
+                    </Link>
+                  </Grid>
+                </Grid>
+              </form>
+          </>
+        }
       </div>
     </Container>
   );
