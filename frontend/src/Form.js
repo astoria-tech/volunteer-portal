@@ -67,10 +67,11 @@ export default function Form() {
     return <p>Your info has been updated</p>;
   } else if (formData) {
     return (
-      <div className="form">
-        <h2>Astoria Mutual Aid Network • Volunteer Form •</h2>
-        <List id="form-list">{formQuestions}</List>
-        <button onClick={handleSubmit(onSubmit)}>Submit</button>
+      <div className="form-container">
+        <div className="form">
+          <List id="form-list">{formQuestions}</List>
+          <button onClick={handleSubmit(onSubmit)}>Submit</button>
+        </div>
       </div>
     );
   } else {

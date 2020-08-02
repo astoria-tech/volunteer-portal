@@ -4,16 +4,16 @@ import ListItemText from "@material-ui/core/ListItemText";
 
 import AnswerChoices from "./AnswerChoices";
 
-export default function Question(props) {
-  const {
-    question, 
-    idx, 
-    formData,
-    setValue,
-    register,
-    errors
-  } = props;
+import "./Question.css"
 
+export default function Question({
+  question,
+  idx,
+  formData,
+  setValue,
+  register,
+  errors
+}) {
   const {
     title,
     fieldName,
