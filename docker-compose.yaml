@@ -18,6 +18,17 @@ services:
     labels:
       shipyard.route: '/api'
     build: 'backend'
+    environment:
+      AIRTABLE_API_KEY: ${AIRTABLE_API_KEY}
+      AIRTABLE_BASE_ID: ${AIRTABLE_BASE_ID}
+      CRYPTO_KEY: ${CRYPTO_KEY}
+      JWT_PRIVATE_KEY_BASE64: ${JWT_PRIVATE_KEY_BASE64}
+      JWT_PUBLIC_KEY_BASE64: ${JWT_PUBLIC_KEY_BASE64}
+      MAILJET_API_KEY: ${MAILJET_API_KEY}
+      MAILJET_SECRET_KEY: ${MAILJET_SECRET_KEY}
+      TWILIO_ACCOUNT_SID: ${TWILIO_ACCOUNT_SID}
+      TWILIO_AUTH_TOKEN: ${TWILIO_AUTH_TOKEN}
+      TWILIO_PHONE_NUMBER: ${TWILIO_PHONE_NUMBER}
     volumes:
       - './backend/src:/srv/src'
     ports:

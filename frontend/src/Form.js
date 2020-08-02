@@ -1,4 +1,4 @@
-import React, {useEffect, useState } from "react";
+import React, { useEffect, useState } from "react";
 import { useForm } from "react-hook-form";
 import List from "@material-ui/core/List";
 
@@ -13,13 +13,13 @@ export default function Form() {
   const [formData, setFormData] = useState(null);
   const [submitted, setSubmitted] = useState(false);
 
-  async function postData(url = '', data = {}) {
+  async function postData(url = "", data = {}) {
     const response = await fetch(url, {
-      method: 'POST',
+      method: "POST",
       headers: {
-        'Content-Type': 'application/json'
+        "Content-Type": "application/json",
       },
-      body: JSON.stringify(data)
+      body: JSON.stringify(data),
     });
 
     return response.json();
@@ -28,13 +28,12 @@ export default function Form() {
   const onSubmit = (data, e) => {
     e.preventDefault();
     const formattedData = formatData(data, questions);
-    postData("/api/v1/airtable/", formattedData)
-      .then(data => {
-        if (data.updated) {
-          setSubmitted(true);
-        }
-      });
-  }
+    postData("/api/v1/airtable/", formattedData).then((data) => {
+      if (data.updated) {
+        setSubmitted(true);
+      }
+    });
+  };
 
   useEffect(() => {
     fetch("/api/v1/airtable/")
@@ -46,9 +45,9 @@ export default function Form() {
             prefilledData[field] = result.fields[field];
           }
         }
-        setFormData(prefilledData)
+        setFormData(prefilledData);
       });
-  }, [])
+  }, []);
 
   const formQuestions = questions.map((question, idx) => {
     return (
@@ -61,7 +60,7 @@ export default function Form() {
         register={register}
         errors={errors}
       />
-    )
+    );
   });
 
   if (submitted) {
@@ -74,7 +73,7 @@ export default function Form() {
           <button onClick={handleSubmit(onSubmit)}>Submit</button>
         </div>
       </div>
-    )
+    );
   } else {
     return <p>Loading...</p>;
   }
