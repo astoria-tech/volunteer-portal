@@ -45,3 +45,23 @@
   content: " *";
   color: red;
 }
+
+.loading {
+  height: 375px;
+  display: flex;
+  align-items: center;
+  background: #f7f2eb;
+  margin-top: 50px;
+  justify-content: center;
+}
+
+.loading-text {
+  line-height: 35px;
+  font-family: Poppins, sans-serif;
+  font-size: 24px;
+  font-weight: 800;
+  color: #ce805c;
+  margin-bottom: 40px;
+  max-width: 630px;
+  text-align: left;
+}

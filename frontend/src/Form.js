@@ -75,6 +75,10 @@ export default function Form() {
       </div>
     );
   } else {
-    return <p>Loading...</p>;
+    return (
+      <div className="loading">
+        <p className="loading-text">Loading...</p>
+      </div>
+    );
   }
 }
