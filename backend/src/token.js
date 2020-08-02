@@ -31,7 +31,7 @@ const verifyToken = (token) =>
 const generateLink = (recordID) => {
   console.log(`creating link for Airtable record: ${recordID}`);
   const hash = cryptr.encrypt(recordID);
-  return `http://localhost:3001/api/v1/auth/${hash}`;
+  return `${config.VOLUNTEER_PORTAL_URL}/api/v1/auth/${hash}`;
 };
 
 const decryptHash = (hash) => {
