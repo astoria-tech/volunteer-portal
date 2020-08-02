@@ -1,19 +1,17 @@
-import React, {useState, useEffect} from 'react';
-import './App.css';
-
-import SignIn from './SignIn';
-import Form from './Form';
+import React, { useState, useEffect } from "react";
+import SignIn from "./SignIn";
+import Form from "./Form";
+import "./App.css";
 
 function App() {
-  const [token,setToken]=useState(false)
-  useEffect(()=>{
-    fetch('/api/v1/initial')
-    .then(res=>{
-      if(res.status===302){
-        setToken(true)
+  const [token, setToken] = useState(false);
+  useEffect(() => {
+    fetch("/api/v1/initial").then((res) => {
+      if (res.status === 202) {
+        setToken(true);
       }
     })
-  },[]); 
+  }, []); 
   return (
     <div className="App">
       <div className="header-container">
