@@ -101,3 +101,11 @@
   width: 173px;
   margin-right: 50px;
 }
+
+.header-container .logout-button, .header-container .logout-button:hover {
+  float: right;
+  margin-right: 1em;
+  margin-top: 1em;
+  background-color: #587183;
+  color: #ffffff;
+}
