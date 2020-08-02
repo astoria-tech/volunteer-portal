@@ -1,5 +1,7 @@
 const Airtable = require("airtable");
 const config = require("./config");
+const PNF = require("google-libphonenumber").PhoneNumberFormat;
+const phoneUtil = require("google-libphonenumber").PhoneNumberUtil.getInstance();
 
 const base = new Airtable({ apiKey: config.AIRTABLE_API_KEY }).base(
   config.AIRTABLE_BASE_ID
@@ -9,6 +11,9 @@ const checkForUser = async (loginType, loginValue, callback) => {
   let airTableColumn;
   if (loginType == "phone") {
     airTableColumn = "Please provide your contact phone number:";
+    const parsedNumber = phoneUtil.parseAndKeepRawInput(loginValue, "US");
+    loginValue = phoneUtil.format(parsedNumber, PNF.NATIONAL);
+    console.log("Formatted number: " + loginValue);
   } else {
     airTableColumn = "Email Address";
   }
