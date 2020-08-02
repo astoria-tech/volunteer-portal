@@ -48,12 +48,17 @@ const config = {
     false
   ),
   VOLUNTEER_PORTAL_FRONTEND_DOMAIN:
-    process.env.VOLUNTEER_PORTAL_DOMAIN || "localhost",
-  VOLUNTEER_PORTAL_FRONTEND_PORT: process.env.VOLUNTEER_PORTAL_PORT || "3000",
+    process.env.VOLUNTEER_PORTAL_FRONTEND_DOMAIN || "localhost",
+  VOLUNTEER_PORTAL_FRONTEND_PORT:
+    process.env.VOLUNTEER_PORTAL_FRONTEND_PORT || "3000",
 };
 
 // Set the URL for convenience after we gather the config
 const httpScheme = config.VOLUNTEER_PORTAL_HTTPS_ENABLED ? "https" : "http";
-config.VOLUNTEER_PORTAL_URL = `${httpScheme}://${config.VOLUNTEER_PORTAL_FRONTEND_DOMAIN}:${config.VOLUNTEER_PORTAL_FRONTEND_PORT}`;
+if (config.VOLUNTEER_PORTAL_FRONTEND_PORT == "80") {
+  config.VOLUNTEER_PORTAL_URL = `${httpScheme}://${config.VOLUNTEER_PORTAL_FRONTEND_DOMAIN}`;
+} else {
+  config.VOLUNTEER_PORTAL_URL = `${httpScheme}://${config.VOLUNTEER_PORTAL_FRONTEND_DOMAIN}:${config.VOLUNTEER_PORTAL_FRONTEND_PORT}`;
+}
 
 module.exports = config;
