@@ -41,6 +41,7 @@ export default function SignIn() {
   const [value, setValue] = React.useState("");
   const [error, setError] = React.useState(false);
   const [submitted, setSubmitted] = React.useState(false);
+  const [authMethod, setAuthMethod] = React.useState("");
 
   const errorMessage = error
     ? "Please enter a valid Email Address or Phone Number"
@@ -52,19 +53,18 @@ export default function SignIn() {
 
   const handleSubmit = (event) => {
     event.preventDefault();
-    let authMethod = "";
 
     if (isEmail(value)) {
       setError(false);
       console.log("valid email");
-      authMethod = "email";
+      setAuthMethod("email");
     }
 
     const phoneNumber = parsePhoneNumberFromString(value, "US");
     if (phoneNumber && phoneNumber.isValid()) {
       setError(false);
       console.log("valid phone number");
-      authMethod = "phone";
+      setAuthMethod("phone");
     }
 
     if (!authMethod) {
@@ -100,7 +100,7 @@ export default function SignIn() {
       <div className={classes.paper}>
         { submitted
           ? <div className="submitted">
-              <p className="submitted-text">Your login link will be sent to you by email or text message momentarily.</p>
+              <p className="submitted-text">Your login link will be sent to you by {authMethod === 'email' ? 'email' : 'text message'} momentarily.</p>
             </div>
           : <>
               <p className="directions">
