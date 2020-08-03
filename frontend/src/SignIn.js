@@ -43,7 +43,7 @@ export default function SignIn() {
   const errorRef = React.useRef(error);
   const [submitted, setSubmitted] = React.useState(false);
   const [authMethod, _setAuthMethod] = React.useState("");
-  const authMethodRef = React.useRef(authMethod)
+  const authMethodRef = React.useRef(authMethod);
 
   const setError = bool => {
     errorRef.current = bool;
@@ -90,7 +90,7 @@ export default function SignIn() {
 
         },
         body: JSON.stringify({
-          [authMethod]: value,
+          [authMethodRef.current]: value,
         }),
       });
       setSubmitted(true);
