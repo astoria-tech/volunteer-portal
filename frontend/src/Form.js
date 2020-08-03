@@ -64,7 +64,11 @@ export default function Form() {
   });
 
   if (submitted) {
-    return <p>Your info has been updated</p>;
+    return (
+      <div className="confirmation">
+        <p className="confirmation-text">Your volunteer profile has been updated.</p>
+      </div>
+    );
   } else if (formData) {
     return (
       <div className="form-container">

@@ -46,7 +46,8 @@
   color: red;
 }
 
-.loading {
+.loading,
+.confirmation {
   height: 375px;
   display: flex;
   align-items: center;
@@ -55,7 +56,8 @@
   justify-content: center;
 }
 
-.loading-text {
+.loading-text,
+.confirmation-text {
   line-height: 35px;
   font-family: Poppins, sans-serif;
   font-size: 24px;
