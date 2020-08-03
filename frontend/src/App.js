@@ -9,14 +9,11 @@ function App() {
   const [token, setToken] = useState(false);
   const [tokenChecked, setTokenChecked] = useState(false)
   useEffect(() => {
-    if (!tokenChecked) {
-      fetch("/api/v1/initial").then((res) => {
-        if (res.status === 202) {
-          setToken(true);
-        }
-      });
-      setTokenChecked(true);
-    }
+    fetch("/api/v1/initial").then((res) => {
+      if (res.status === 202) {
+        setToken(true);
+      }
+    });
   }, []);
 
   function logout() {
