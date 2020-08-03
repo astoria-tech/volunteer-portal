@@ -39,9 +39,21 @@ const useStyles = makeStyles((theme) => ({
 export default function SignIn() {
   const classes = useStyles();
   const [value, setValue] = React.useState("");
-  const [error, setError] = React.useState(false);
+  const [error, _setError] = React.useState(false);
+  const errorRef = React.useRef(error);
   const [submitted, setSubmitted] = React.useState(false);
-  const [authMethod, setAuthMethod] = React.useState("");
+  const [authMethod, _setAuthMethod] = React.useState("");
+  const authMethodRef = React.useRef(authMethod)
+
+  const setError = bool => {
+    errorRef.current = bool;
+    _setError(bool);
+  }
+
+  const setAuthMethod = value => {
+    authMethodRef.current = value;
+    _setAuthMethod(value);
+  }
 
   const errorMessage = error
     ? "Please enter a valid Email Address or Phone Number"
@@ -56,20 +68,20 @@ export default function SignIn() {
 
     if (isEmail(value)) {
       setError(false);
-      console.log("valid email");
       setAuthMethod("email");
     }
 
     const phoneNumber = parsePhoneNumberFromString(value, "US");
     if (phoneNumber && phoneNumber.isValid()) {
       setError(false);
-      console.log("valid phone number");
       setAuthMethod("phone");
     }
 
-    if (!authMethod) {
+    if (!authMethodRef.current) {
       setError(true);
-    } else if (!error){
+    }
+
+    if (!errorRef.current){
       fetch('/api/v1/auth',{
         method:'POST',
         headers:{
