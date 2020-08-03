@@ -6,7 +6,7 @@ const mailjetClient = mailjet.connect(
   config.MAILJET_SECRET_KEY
 );
 
-async function sendEmail(recipientEmail, subject, body) {
+async function sendEmail(recipientEmail, subject, textBody, htmlBody) {
   mailjetClient
     .post("send", { version: "v3.1" })
     .request({
@@ -23,8 +23,8 @@ async function sendEmail(recipientEmail, subject, body) {
             },
           ],
           Subject: subject,
-          TextPart: body,
-          HTMLPart: body,
+          TextPart: textBody,
+          HTMLPart: htmlBody,
         },
       ],
     })

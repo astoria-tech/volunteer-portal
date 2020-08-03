@@ -51,13 +51,14 @@ app.post("/api/v1/auth", async (req, res) => {
     if (loginType == "phone") {
       sendSMS(
         loginValue,
-        `Hey there! Log in to the Astoria Mutual Aid volunteer app here: ${loginLink}`
+        `Here's your login link to the Astoria Mutual Aid Volunteer Portal!\n\n${loginLink}`
       );
     } else if (loginType == "email") {
       sendEmail(
         loginValue,
-        "Log in to the Astoria Mutual Aid volunteer app",
-        `Hey there! Log in to the Astoria Mutual Aid volunteer app here: ${loginLink}`
+        "Log in to Astoria Mutual Aid Volunteer Portal",
+        `Here's your login link to the Astoria Mutual Aid Volunteer Portal! ${loginLink}`,
+        `Here's your login link to the Astoria Mutual Aid Volunteer Portal!<br><br>${loginLink}`
       );
     }
 
@@ -97,4 +98,8 @@ app.post("/api/v1/airtable", (req, res) => {
 const listenURL = `http://0.0.0.0:3001`;
 app.listen("3001", "0.0.0.0", () => {
   console.log(`Volunteer portal backend listening at ${listenURL}!`);
+});
+
+process.on("unhandledRejection", (reason) => {
+  console.log(reason);
 });
