@@ -1,29 +1,3 @@
-.App {
-  padding: 0;
-  margin: 0;
-  text-align: center;
-  background: white;
-  display: flex;
-  flex-flow: column;
-  height: 100%;
-}
-
-.logo-image {
-  margin-top: 20px;
-  margin-bottom: 20px;
-}
-
-.header {
-  font-family: Poppins, sans-serif;
-  font-size: 44px;
-  font-weight: 800;
-}
-
-.header-container {
-  margin-bottom: -40px;
-  background: white;
-}
-
 .orange {
   color: #ce805c;
 }
@@ -31,14 +5,16 @@
 .slate {
   color: #587183;
 }
+.header {
+  font-family: Poppins, sans-serif;
+}
+
+.footer-logo {
+  width: 173px;
+}
 
 .footer {
   background: #587183;
-  flex-grow: 1;
-  display: flex;
-  flex-flow: column;
-  align-items: center;
-  justify-content: space-between;
 }
 
 .footer-link-header {
@@ -58,34 +34,6 @@
   cursor: pointer;
 }
 
-.div-block {
-  margin-right: 50px;
-  display: flex;
-  flex-flow: column;
-  align-items: flex-start;
-}
-
-.div-block:nth-of-type(3) {
-  margin-right: 200px;
-}
-
-.link-block {
-  margin-top: -6px;
-}
-
-.link-block a:first-of-type {
-  margin-right: 40px;
-}
-
-.footer-content {
-  width: 100%;
-  padding-top: 30px;
-  max-width: 1170px;
-  display: flex;
-  justify-content: flex-start;
-  align-items: flex-end;
-}
-
 .paragraph-4-copy {
   color: #fff;
   font-family: Poppins, sans-serif;
@@ -97,15 +45,137 @@
   text-align: left;
 }
 
-.footer-logo {
-  width: 173px;
-  margin-right: 50px;
-}
+@media screen and (max-width: 450px) { 
+  .header {
+    font-size: 30px;
+    font-weight: 800;
+    padding: 0 10px;
+    line-height: 34px;
+  }
+  
+  .header-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    line-height: 38px;
+    margin-bottom: -55px;
+  }
 
-.header-container .logout-button, .header-container .logout-button:hover {
-  float: right;
-  margin-right: 1em;
-  margin-top: 1em;
-  background-color: #587183;
-  color: #ffffff;
+  .logo-image {
+    margin: 15px 0 5px 0;
+  }
+
+  .footer {
+    flex-grow: 1;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding-top: 30px;
+  }
+
+  .footer-logo {
+    margin-bottom: 15px;
+  }
+
+  .div-block {
+    display: flex;
+    flex-flow: column;
+    align-items: center;
+  }
+
+  .link-block {
+    width: 110px;
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 20px;
+  }
+
+  .paragraph-4-copy {
+    font-size: 14px;
+    line-height: 22px;
+    font-weight: 500;
+    color: #fff;
+    padding: 0 10px;
+    text-align: center;
+    margin-bottom: 50px !important;
+  }
+} 
+
+@media screen and (min-width: 451px) { 
+  .App {
+    padding: 0;
+    margin: 0;
+    text-align: center;
+    background: white;
+    display: flex;
+    flex-flow: column;
+    height: 100%;
+  }
+
+  .logo-image {
+    margin-top: 20px;
+    margin-bottom: 20px;
+  }
+
+  .header {
+    font-family: Poppins, sans-serif;
+    font-size: 44px;
+    font-weight: 800;
+  }
+
+  .header-container {
+    margin-bottom: -40px;
+    background: white;
+  }
+
+  .footer {
+    background: #587183;
+    flex-grow: 1;
+    display: flex;
+    flex-flow: column;
+    align-items: center;
+    justify-content: space-between;
+  }
+
+  .div-block {
+    margin-right: 50px;
+    display: flex;
+    flex-flow: column;
+    align-items: flex-start;
+  }
+
+  .div-block:nth-of-type(3) {
+    margin-right: 200px;
+  }
+
+  .link-block {
+    margin-top: -6px;
+  }
+
+  .link-block a:first-of-type {
+    margin-right: 40px;
+  }
+
+  .footer-content {
+    width: 100%;
+    padding-top: 30px;
+    max-width: 1170px;
+    display: flex;
+    justify-content: flex-start;
+    align-items: flex-end;
+  }
+
+  .footer-logo {
+    margin-right: 50px;
+  }
+
+  .header-container .logout-button,
+  .header-container .logout-button:hover {
+    float: right;
+    margin-right: 1em;
+    margin-top: 1em;
+    background-color: #587183;
+    color: #ffffff;
+  }
 }
