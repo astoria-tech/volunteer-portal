@@ -28,7 +28,7 @@ export default function SingleSelect({
         <FormControlLabel
           key={idx}
           value={value}
-          control={<Radio inputRef={required ? register({required: true}) : register} name={`${questionIdx}`}/>}
+          control={<Radio className="radio" inputRef={required ? register({required: true}) : register} name={`${questionIdx}`}/>}
           label={value}
           defaultValue={required ? "Yes" : "No"}
         />

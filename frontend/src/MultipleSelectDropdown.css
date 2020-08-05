@@ -11,9 +11,6 @@
 
 .menu-item {
   width: 300px;
-  /* border: 1px dotted gray; */
-  /* padding-top: 2px;
-  padding-bottom: 2px; */
 }
 
 .menu-chip {
@@ -27,11 +24,21 @@
   align-items: flex-start;
 }
 
+
 .multiselect-button {
   text-transform: none !important;
-  /* border: 1px solid #999 !important; */
   padding: 0px 14px !important;
-  height: 22px;
+  height: 32px;
   background: rgba(0,0,0,0.05) !important;
   margin-bottom: 8px !important;
+  margin-top: -4px !important;
 }
+
+.selectedChip.mobile svg {
+  margin-top: -20px;
+}
+
+.selectedChip {
+  margin-bottom: 8px;
+}
+

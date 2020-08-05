@@ -100,6 +100,22 @@
     text-align: center;
     margin-bottom: 50px !important;
   }
+
+  .logo-button {
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+    padding: 0px 20px;
+  }
+
+  .header-container .logout-button,
+  .header-container .logout-button:hover {
+    height: 100%;
+    margin-top: 1.5em;
+    text-transform: capitalize !important;
+    background-color: #587183;
+    color: #ffffff;
+  }
 } 
 
 @media screen and (min-width: 451px) { 
@@ -172,10 +188,23 @@
 
   .header-container .logout-button,
   .header-container .logout-button:hover {
-    float: right;
-    margin-right: 1em;
+    margin-right: 15px;
     margin-top: 1em;
     background-color: #587183;
     color: #ffffff;
+    height: 100%;
+    width: 110px;
+    text-transform: capitalize !important;
+  }
+
+  .logo-image-container {
+    width: calc(100% - 125px);
+    display: flex;
+    justify-content: center;
+    margin-left: 125px;
+  }
+
+  .logo-button {
+    display: flex;
   }
 }

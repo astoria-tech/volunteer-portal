@@ -5,12 +5,15 @@ import Menu from "@material-ui/core/Menu";
 import MenuItem from "@material-ui/core/MenuItem";
 import Chip from "@material-ui/core/Chip";
 
+import { formatAnswerText } from './utils/formUtils';
+
 export default function MultiSelectDropdown({
   possibleValues,
   answers,
   options,
   setValue,
-  questionIdx
+  questionIdx,
+  isMobile,
 }) {
   const [anchorEl, setAnchorEl] = useState(null);
   const [menuOptions, _setMenuOptions] = useState(options);
@@ -67,6 +70,7 @@ export default function MultiSelectDropdown({
       <Button className="multiselect-button"
         aria-controls="simple-menu"
         aria-haspopup="true"
+        variant="outlined"
         disableRipple
         onClick={handleClick}
       >
@@ -86,7 +90,7 @@ export default function MultiSelectDropdown({
               className="menu-item"
               onClick={() => handleOptionClick(opt)}
             >
-              <Chip key={opt} className="menu-chip" label={opt} size="small" />
+              <Chip key={opt} className="menu-chip" label={isMobile ? formatAnswerText(opt, 40) : opt} size="small" />
             </MenuItem>
           );
         })}
@@ -95,8 +99,8 @@ export default function MultiSelectDropdown({
         {selectedOptions.map(option => (
           <Chip
             key={option}
-            className="selectedChip"
-            label={option}
+            className={isMobile && option.length > 40 ? "selectedChip mobile" : "selectedChip"}
+            label={isMobile ? formatAnswerText(option, 40) : option}
             size="small"
             onDelete={() => handleDelete(option)}
           />

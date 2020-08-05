@@ -1,3 +1,15 @@
+.MuiListItemText-root {
+  width: 100%;
+}
+
 .MuiListItemText-primary {
+  margin-bottom: 20px !important;
+  font-size: 1.1rem !important;
+}
+
+.MuiListItemText-secondary {
+  overflow-wrap: break-word;
+  font-size: 0.95rem !important;
+  line-height: 1.5 !important;
   margin-bottom: 20px !important;
 }
