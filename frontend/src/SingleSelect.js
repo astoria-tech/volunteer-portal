@@ -21,7 +21,9 @@ export default function SingleSelect({
     setValue(event.target.value);
   };
 
+  const defaultValue = required ? "Yes" : "No";
   let options;
+
   if (showAs === "List") {
     options = possibleValues.map((value, idx) => {
       return (
@@ -30,7 +32,6 @@ export default function SingleSelect({
           value={value}
           control={<Radio className="radio" inputRef={required ? register({required: true}) : register} name={`${questionIdx}`}/>}
           label={value}
-          defaultValue={required ? "Yes" : "No"}
         />
       );
     });
@@ -38,7 +39,7 @@ export default function SingleSelect({
 
   return (
     <FormControl>
-      <RadioGroup value={value} onChange={handleChange}>
+      <RadioGroup value={value || defaultValue} onChange={handleChange}>
         {options}
       </RadioGroup>
       {errors[`${questionIdx}`] && <p className="error">Please select an option</p>}
