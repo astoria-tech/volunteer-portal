@@ -30,6 +30,7 @@ services:
       TWILIO_ACCOUNT_SID: ${TWILIO_ACCOUNT_SID}
       TWILIO_AUTH_TOKEN: ${TWILIO_AUTH_TOKEN}
       TWILIO_PHONE_NUMBER: ${TWILIO_PHONE_NUMBER}
+      VOLUNTEER_PORTAL_FRONTEND_DOMAIN: ${VOLUNTEER_PORTAL_FRONTEND_DOMAIN:-localhost}
       VOLUNTEER_PORTAL_FRONTEND_PORT: ${VOLUNTEER_PORTAL_FRONTEND_PORT:-3001}  # 3001 is intentional, hack around local cookie issue
     volumes:
       - './backend/src:/srv/src'
