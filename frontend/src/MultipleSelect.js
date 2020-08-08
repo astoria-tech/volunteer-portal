@@ -6,6 +6,7 @@ import Chip from "@material-ui/core/Chip";
 import MultipleSelectDropdown from "./MultipleSelectDropdown";
 
 import './MultipleSelect.css';
+import { formatAnswerText } from "./utils/formUtils";
 
 export default function MultipleSelect({
   answers,
@@ -15,7 +16,8 @@ export default function MultipleSelect({
   showAs,
   questionIdx,
   register,
-  setValue
+  setValue,
+  isMobile,
 }) {
   const [state, setState] = React.useState(answers);
 
@@ -39,6 +41,7 @@ export default function MultipleSelect({
         options={menuOptions}
         setValue={setValue}
         questionIdx={questionIdx}
+        isMobile={isMobile}
       />
     );
   }
@@ -46,7 +49,11 @@ export default function MultipleSelect({
   if (showAs === "List") {
     let options = possibleValues.map((value) => {
       return (
-        <ListItem className="multi-select-item" key={value}>
+        <ListItem
+          className="multi-select-item"
+          key={value}
+          disableGutters={true}
+        >
           <Checkbox
             inputRef={required ? register({required: true}) : register}
             onChange={handleChange}
@@ -54,13 +61,13 @@ export default function MultipleSelect({
             checked={state.includes(value)}
             value={value}
           />
-          <Chip size="small" label={value} />
+          <Chip label={isMobile ? formatAnswerText(value, 40) : value} />
         </ListItem>
       );
     });
     return (
       <>
-        <List>{options}</List>
+        <List className="checkbox-container" disablePadding={true}>{options}</List>
         {errors[`${questionIdx}`] && <p className="error">Please select at least 1 option</p>}
       </>
     );

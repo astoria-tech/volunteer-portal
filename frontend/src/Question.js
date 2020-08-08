@@ -12,7 +12,8 @@ export default function Question({
   formData,
   setValue,
   register,
-  errors
+  errors,
+  isMobile,
 }) {
   const {
     title,
@@ -42,6 +43,7 @@ export default function Question({
           setValue={setValue}
           register={register}
           errors={errors}
+          isMobile={isMobile}
         />
       </ListItem>
     );

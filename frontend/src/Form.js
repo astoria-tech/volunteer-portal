@@ -12,6 +12,11 @@ export default function Form() {
   const { register, handleSubmit, setValue, errors } = useForm();
   const [formData, setFormData] = useState(null);
   const [submitted, setSubmitted] = useState(false);
+  const [isMobile, setMobile] = React.useState(window.innerWidth < 451);
+
+  const updateMedia = () => {
+    setMobile(window.innerWidth < 451);
+  };
 
   async function postData(url = "", data = {}) {
     const response = await fetch(url, {
@@ -47,6 +52,8 @@ export default function Form() {
         }
         setFormData(prefilledData);
       });
+    window.addEventListener("resize", updateMedia);
+    return () => window.removeEventListener("resize", updateMedia);
   }, []);
 
   const formQuestions = questions.map((question, idx) => {
@@ -59,11 +66,13 @@ export default function Form() {
         setValue={setValue}
         register={register}
         errors={errors}
+        isMobile={isMobile}
       />
     );
   });
 
   if (submitted) {
+    window.scrollTo(0,0);
     return (
       <div className="confirmation">
         <p className="confirmation-text">Your volunteer profile has been updated.</p>

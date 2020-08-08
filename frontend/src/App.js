@@ -23,15 +23,19 @@ function App() {
   return (
     <div className="App">
       <div className="header-container">
-        {token ? <Button
+        <div className="logo-button">
+          <div className="logo-image-container">
+            <img src="https://uploads-ssl.webflow.com/5ed01da8465a6b1be64f9b8e/5ed17ad2b3da10416aa59570_AMAN%20Color%20Logo.svg" width="108" alt="" className="logo-image" />
+          </div>
+          {token ? <Button
             onClick={logout}
             variant="contained"
             color="default"
             className={"logout-button"}
-        >
-          Sign out
-        </Button>: ''}
-        <img src="https://uploads-ssl.webflow.com/5ed01da8465a6b1be64f9b8e/5ed17ad2b3da10416aa59570_AMAN%20Color%20Logo.svg" width="108" alt="" className="logo-image" />
+          >
+            Sign out
+          </Button> : ''}
+        </div>
         <div className="header orange">Astoria Mutual Aid Network</div>
         <div className="header slate">Volunteer Portal</div>
       </div>

@@ -1,3 +1,5 @@
+import React from 'react';
+
 export const formatData = (data, questions) => {
   const formattedData = {};
   for (let idx of Object.keys(data)) {
@@ -18,4 +20,30 @@ export const formatData = (data, questions) => {
     }
   };
   return formattedData;
+}
+
+export const formatAnswerText = (text, limit) => {
+  if (text.length > limit) {
+    const words = text.split(" ");
+    let lines = [];
+    let textLine = "";
+    for (let i = 0; i < words.length; i++) {
+      if (textLine.length + words[i].length + 1 <= limit) {
+        textLine = `${textLine} ${words[i]}`;
+      } else {
+        lines.push(textLine);
+        textLine = words[i];
+      }
+    }
+    if (textLine) {
+      lines.push(textLine);
+    }
+    return (
+      <div className="multiline-chip">
+        { lines.map(text => <div key={text}>{text}</div>) }
+      </div>
+    )
+  }
+
+  return text;
 }

@@ -1,7 +1,23 @@
 .multi-select-item {
-  margin-bottom: -25px;
+  margin-bottom: -5px;
 }
 
 .error {
+  margin-top: 20px !important;
   color: red;
+  font-size: 18px !important;
+}
+
+.MuiChip-label {
+  width: 100%;
+}
+
+.MuiChip-root {
+  height: 100% !important;
+  padding: 4px 0px !important;
+  font-size: 14px !important;
+}
+
+.checkbox-container {
+  margin-top: -15px !important;
 }

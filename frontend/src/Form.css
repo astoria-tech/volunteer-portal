@@ -11,12 +11,7 @@
   display: flex !important;
   flex-direction: column !important;
   align-items: flex-start !important;
-  /* max-width: 500px; */
-  margin-bottom: 30px;
-}
-
-.text-field {
-  width: 500px;
+  margin-bottom: 40px;
 }
 
 .form {
@@ -33,7 +28,6 @@
   align-items: center;
   background: #f7f2eb;
   width: 100%;
-  /* border: 1px solid #fafafa; */
 }
 
 .form h2 {
@@ -52,7 +46,7 @@
   display: flex;
   align-items: center;
   background: #f7f2eb;
-  margin-top: 50px;
+  margin-top: 70px;
   justify-content: center;
 }
 
@@ -66,4 +60,56 @@
   margin-bottom: 40px;
   max-width: 630px;
   text-align: left;
+}
+
+@media screen and (max-width: 450px) {
+  #form-list {
+    width: 100%;
+  }
+
+  .form {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .text-field {
+    width: 100%;
+  }
+
+  .MuiListItem-gutters {
+    padding-left: 20px !important;
+    padding-right: 20px !important;
+  }
+
+  .form-container {
+    margin-top: 70px;
+  }
+
+  button {
+    margin-bottom: 10px;
+    font-size: 17px;
+    padding: 5px 12px;
+  }
+
+  .list-item:last-of-type {
+    margin-bottom: 15px;
+  }
+
+  .confirmation {
+    display: flex;
+    justify-content: center;
+  }
+
+  .confirmation-text {
+    padding: 0 20px;
+    text-align: center;
+  }
+}
+
+@media screen and (min-width: 451px) {
+  .text-field {
+    width: 500px;
+  }
 }

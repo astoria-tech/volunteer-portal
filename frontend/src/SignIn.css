@@ -1,5 +1,4 @@
 .signin-input {
-  width: 450px !important;
   height: 80px !important;
   font-family: Poppins, sans-serif !important;
   font-size: 21px !important;
@@ -27,7 +26,6 @@
   height: 80px;
   margin-top: 8px !important;
   margin-bottom: 40px !important;
-  width: 450px !important;
   border-radius: 0px !important;
   color: #f7f2eb !important;
   background-color: #587183 !important;
@@ -38,7 +36,6 @@
 }
 
 #emailOrPhoneNumber {
-  width: 450px !important;
   font-size: 21px;
   font-weight: 700;
   height: 80px;
@@ -78,4 +75,96 @@
   height: 375px;
   display: flex;
   align-items: center;
+}
+
+@media screen and (max-width: 450px) {
+  .submit,
+  .signin-input {
+    width: 100% !important;
+  }
+
+  .signin-input {
+    height: 60px !important;
+  }
+
+  .submit {
+    height: 60px;
+    font-size: 18px !important;
+    margin-bottom: 25px !important;
+  }
+
+  .link {
+    font-size: 16px !important;
+  }
+
+  .makeStyles-paper-1 {
+    padding: 0 20px 25px !important;
+  }
+
+  .MuiOutlinedInput-root {
+    height: 60px !important;
+  }
+
+  .directions {
+    font-size: 18px;
+    line-height: 25px;
+    padding: 0px 5px;
+    margin-bottom: 10px;
+    text-align: center;
+  }
+
+  #emailOrPhoneNumber {
+    font-size: 16px;
+    font-weight: 700;
+    font-family: Poppins, sans-serif;
+    border-radius: 0px !important;
+  }
+
+  #emailOrPhoneNumber-helper-text {
+    font-size: 16px;
+    line-height: 24px;
+  }
+
+  .error {
+    margin-top: 55px !important;
+  }
+
+  .submitted {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 250px;
+  }
+
+  .submitted-text {
+    line-height: 35px;
+    font-family: Poppins, sans-serif;
+    font-size: 22px;
+    font-weight: 800;
+    color: #ce805c;
+    text-align: center;
+    margin-bottom: 0px !important;
+  }
+}
+
+@media screen and (min-width: 451px) {
+  .signin-input {
+    width: 450px !important;
+  }
+
+  .directions,
+  .submitted-text {
+    line-height: 35px;
+    font-family: Poppins, sans-serif;
+    font-size: 24px;
+    font-weight: 800;
+    color: #ce805c;
+    margin-bottom: 40px;
+    max-width: 630px;
+    text-align: left;
+  }
+
+  .submit {
+    width: 450px !important;
+  }
 }

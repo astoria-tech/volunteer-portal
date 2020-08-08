@@ -5,7 +5,7 @@
 }
 
 .MuiFormControlLabel-label.MuiTypography-body1 {
-  font-size: 13px;
+  font-size: 14px;
 }
 
 .MuiFormControlLabel-root {
@@ -14,4 +14,9 @@
 
 .error {
   color: red;
+}
+
+span.radio:first-of-type,
+span.radio:first-of-type + span {
+  margin-bottom: 10px !important;
 }

@@ -16,7 +16,8 @@ export default function AnswerChoices({
     setValue,
     questionIdx,
     register,
-    errors
+    errors,
+    isMobile,
   }) {
     switch (fieldType){
       case "Single select":
@@ -43,6 +44,7 @@ export default function AnswerChoices({
             setValue={setValue}
             questionIdx={questionIdx}
             register={register}
+            isMobile={isMobile}
           />
         );
       case "Single line text":
