@@ -12,4 +12,9 @@
   font-size: 0.95rem !important;
   line-height: 1.5 !important;
   margin-bottom: 20px !important;
+  white-space: pre-wrap;
+}
+
+.secondary-link {
+  color: #2d7ff9;
 }
