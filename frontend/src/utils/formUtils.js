@@ -53,7 +53,17 @@ const renderElement = node => {
     return node.content;
   }
   if (node.type === "a") {
-    return <a key={node.href} href={node.href} className="secondary-link">{node.href}</a>;
+    return (
+      <a
+        key={node.href}
+        href={node.href}
+        className="secondary-link"
+        target="_blank"
+        rel="noreferrer noopener"
+      >
+        {node.href}
+      </a>
+    );
   }
 }
 
