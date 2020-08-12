@@ -51,14 +51,14 @@ app.post("/api/v1/auth", async (req, res) => {
     if (loginType == "phone") {
       sendSMS(
         loginValue,
-        `Here's your login link to the Astoria Mutual Aid Volunteer Portal!\n\n${loginLink}`
+        `Astoria Mutual Aid thanks you for helping lift up the community!\nHere's your Volunteer Portal login link.\n\n${loginLink}`
       );
     } else if (loginType == "email") {
       sendEmail(
         loginValue,
         "Log in to Astoria Mutual Aid Volunteer Portal",
-        `Here's your login link to the Astoria Mutual Aid Volunteer Portal! ${loginLink}`,
-        `Here's your login link to the Astoria Mutual Aid Volunteer Portal!<br><br>${loginLink}`
+        `Thanks for volunteering with Astoria Mutual Aid! We deeply appreciate your help lifting up the community.\n\nHere's your Volunteer Portal login link.\n\n${loginLink}`,
+        `Thanks for volunteering with Astoria Mutual Aid! We deeply appreciate your help lifting up the community.<br><br>Here's your Volunteer Portal login link.<br><br>${loginLink}`
       );
     }
 
