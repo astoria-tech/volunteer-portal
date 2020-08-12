@@ -3,6 +3,7 @@ import ListItem from "@material-ui/core/ListItem";
 import ListItemText from "@material-ui/core/ListItemText";
 
 import AnswerChoices from "./AnswerChoices";
+import { renderDescription } from "./utils/formUtils";
 
 import "./Question.css"
 
@@ -31,7 +32,7 @@ export default function Question({
         <ListItemText
           className={required ? "required-list-item" : ""}
           primary={title}
-          secondary={description ? description : null}
+          secondary={description ? renderDescription(description) : null}
         />
         <AnswerChoices
           answers={answers}

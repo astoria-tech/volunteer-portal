@@ -47,3 +47,30 @@ export const formatAnswerText = (text, limit) => {
 
   return text;
 }
+
+const renderElement = node => {
+  if (node.type === "text") {
+    return node.content;
+  }
+  if (node.type === "a") {
+    return (
+      <a
+        key={node.href}
+        href={node.href}
+        className="secondary-link"
+        target="_blank"
+        rel="noreferrer noopener"
+      >
+        {node.href}
+      </a>
+    );
+  }
+}
+
+export const renderDescription = description => {
+  return (
+    <>
+      {description.map(node => renderElement(node))}
+    </>
+  );
+}
