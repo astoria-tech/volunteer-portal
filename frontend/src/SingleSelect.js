@@ -4,7 +4,10 @@ import FormControlLabel from "@material-ui/core/FormControlLabel";
 import Radio from "@material-ui/core/Radio";
 import RadioGroup from "@material-ui/core/RadioGroup";
 
+import { bgClassNames } from './utils/formUtils';
+
 import './SingleSelect.css';
+import "./colors.css";
 
 export default function SingleSelect({
   answers,
@@ -26,12 +29,13 @@ export default function SingleSelect({
 
   if (showAs === "List") {
     options = possibleValues.map((value, idx) => {
+      const style = bgClassNames[idx % bgClassNames.length].includes("Bright") ? `${bgClassNames[idx % bgClassNames.length]} white-text` : `${bgClassNames[idx % bgClassNames.length]}`;
       return (
         <FormControlLabel
           key={idx}
           value={value}
           control={<Radio className="radio" inputRef={required ? register({required: true}) : register} name={`${questionIdx}`}/>}
-          label={value}
+          label={<div className={`single-select-chip ${style}`}>{value}</div>}
         />
       );
     });

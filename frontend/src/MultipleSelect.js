@@ -6,7 +6,7 @@ import Chip from "@material-ui/core/Chip";
 import MultipleSelectDropdown from "./MultipleSelectDropdown";
 
 import './MultipleSelect.css';
-import { formatAnswerText } from "./utils/formUtils";
+import { formatAnswerText, bgClassNames } from "./utils/formUtils";
 
 export default function MultipleSelect({
   answers,
@@ -47,7 +47,11 @@ export default function MultipleSelect({
   }
 
   if (showAs === "List") {
-    let options = possibleValues.map((value) => {
+    let options = possibleValues.map((value, idx) => {
+      const style = bgClassNames[idx % bgClassNames.length].includes("Bright")
+        ? `${bgClassNames[idx % bgClassNames.length]} white-text`
+        : `${bgClassNames[idx % bgClassNames.length]}`;
+
       return (
         <ListItem
           className="multi-select-item"
@@ -61,7 +65,7 @@ export default function MultipleSelect({
             checked={state.includes(value)}
             value={value}
           />
-          <Chip label={isMobile ? formatAnswerText(value, 40) : value} />
+          <Chip className={style} label={isMobile ? formatAnswerText(value, 40) : value} />
         </ListItem>
       );
     });
