@@ -5,6 +5,7 @@ import Button from "@material-ui/core/Button";
 import Menu from "@material-ui/core/Menu";
 import MenuItem from "@material-ui/core/MenuItem";
 import Chip from "@material-ui/core/Chip";
+import CloseIcon from "@material-ui/icons/Close";
 
 import { formatAnswerText, bgClassNames } from './utils/formUtils';
 
@@ -103,7 +104,9 @@ export default function MultiSelectDropdown({
       <div>
         {selectedOptions.map((option) => {
           const idx = possibleValues.indexOf(option);
-          const style = bgClassNames[idx % bgClassNames.length].includes("Bright")
+          const isWhiteText = bgClassNames[idx % bgClassNames.length].includes("Bright");
+          const iconCloseColor = isWhiteText ? 'white' : 'black';
+          const style = isWhiteText
           ? `${bgClassNames[idx % bgClassNames.length]} white-text`
           : `${bgClassNames[idx % bgClassNames.length]}`;
           return (
@@ -113,6 +116,7 @@ export default function MultiSelectDropdown({
               label={isMobile ? formatAnswerText(option, 40) : option}
               size="small"
               onDelete={() => handleDelete(option)}
+              deleteIcon={<CloseIcon style={{ color: `${iconCloseColor}`}}/>}
             />
           );
         })}
