@@ -24,7 +24,7 @@ function App() {
     <div className="App">
       <div className="header-container">
         <div className="logo-button">
-          <div className="logo-image-container">
+          <div className={token ? "logo-image-container logged-in-logo" : "logo-image-container"}>
             <img src="https://uploads-ssl.webflow.com/5ed01da8465a6b1be64f9b8e/5ed17ad2b3da10416aa59570_AMAN%20Color%20Logo.svg" width="108" alt="" className="logo-image" />
           </div>
           {token ? <Button

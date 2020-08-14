@@ -1,11 +1,13 @@
 import React, { useState, useRef, useEffect } from "react";
 import "./MultipleSelectDropdown.css";
+import "./colors.css";
 import Button from "@material-ui/core/Button";
 import Menu from "@material-ui/core/Menu";
 import MenuItem from "@material-ui/core/MenuItem";
 import Chip from "@material-ui/core/Chip";
+import CloseIcon from "@material-ui/icons/Close";
 
-import { formatAnswerText } from './utils/formUtils';
+import { formatAnswerText, bgClassNames } from './utils/formUtils';
 
 export default function MultiSelectDropdown({
   possibleValues,
@@ -83,28 +85,41 @@ export default function MultiSelectDropdown({
         open={Boolean(anchorEl)}
         onClose={handleClose}
       >
-        {menuOptions.map(opt => {
+        {menuOptions.map((opt) => {
+          const idx = possibleValues.indexOf(opt);
+          const style = bgClassNames[idx % bgClassNames.length].includes("Bright")
+            ? `${bgClassNames[idx % bgClassNames.length]} white-text`
+            : `${bgClassNames[idx % bgClassNames.length]}`;
           return (
             <MenuItem
               key={opt}
               className="menu-item"
               onClick={() => handleOptionClick(opt)}
             >
-              <Chip key={opt} className="menu-chip" label={isMobile ? formatAnswerText(opt, 40) : opt} size="small" />
+              <Chip key={opt} className={`menu-chip ${style}`} label={isMobile ? formatAnswerText(opt, 40) : opt} size="small" />
             </MenuItem>
           );
         })}
       </Menu>
       <div>
-        {selectedOptions.map(option => (
-          <Chip
-            key={option}
-            className={isMobile && option.length > 40 ? "selectedChip mobile" : "selectedChip"}
-            label={isMobile ? formatAnswerText(option, 40) : option}
-            size="small"
-            onDelete={() => handleDelete(option)}
-          />
-        ))}
+        {selectedOptions.map((option) => {
+          const idx = possibleValues.indexOf(option);
+          const isWhiteText = bgClassNames[idx % bgClassNames.length].includes("Bright");
+          const iconCloseColor = isWhiteText ? 'white' : 'black';
+          const style = isWhiteText
+          ? `${bgClassNames[idx % bgClassNames.length]} white-text`
+          : `${bgClassNames[idx % bgClassNames.length]}`;
+          return (
+            <Chip
+              key={option}
+              className={isMobile && option.length > 40 ? `selectedChip mobile ${style}` : `selectedChip ${style}`}
+              label={isMobile ? formatAnswerText(option, 40) : option}
+              size="small"
+              onDelete={() => handleDelete(option)}
+              deleteIcon={<CloseIcon style={{ color: `${iconCloseColor}`}}/>}
+            />
+          );
+        })}
       </div>
     </div>
   );

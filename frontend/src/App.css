@@ -198,10 +198,14 @@
   }
 
   .logo-image-container {
-    width: calc(100% - 125px);
+    width: 100%;
     display: flex;
     justify-content: center;
+  }
+
+  .logged-in-logo {
     margin-left: 125px;
+    width: calc(100% - 125px);
   }
 
   .logo-button {

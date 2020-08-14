@@ -74,3 +74,28 @@ export const renderDescription = description => {
     </>
   );
 }
+
+export const bgClassNames = [
+  "blueLight2",
+  "cyanLight2",
+  "tealLight2",
+  "yellowLight2",
+  "greenLight2",
+  "purpleLight2",
+  "grayLight2",
+  "blueLight1",
+  "cyanLight1",
+  "tealLight1",
+  "yellowLight1",
+  "orangeLight1",
+  "redLight1",
+  "purpleLight1",
+  "tealBright",
+  "grayLight1",
+  "greenBright",
+  "redBright",
+  "cyanBright",
+  "orangeLight2",
+  "pinkBright",
+  "orangeBright"
+];

@@ -1,9 +1,3 @@
-.MuiFormControlLabel-label {
-  background: #e0e0e0;
-  padding: 2px 8px;
-  border-radius: 16px;
-}
-
 .MuiFormControlLabel-label.MuiTypography-body1 {
   font-size: 14px;
 }
@@ -19,4 +13,9 @@
 span.radio:first-of-type,
 span.radio:first-of-type + span {
   margin-bottom: 10px !important;
+}
+
+.single-select-chip {
+  padding: 2px 8px;
+  border-radius: 16px;
 }
