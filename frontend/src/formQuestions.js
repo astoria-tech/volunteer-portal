@@ -253,6 +253,7 @@ const questions = [
       "A “care pod” to support a local neighbor on a weekly basis",
       "One of our administrative teams (community, fundraising, operations, etc.)",
       "Our communications team (social media, PR, newsletters, etc.)",
+      "Our civic engagement team (voter registration, census outreach, etc.)",
       "Our dispatching team to field calls & requests from neighbors (with weekly shifts)",
       "Subject-specific working groups (housing assistance, disability rights, distance learning, etc.)"
     ],
@@ -268,6 +269,7 @@ const questions = [
       "showAs": "Dropdown"
     },
     "possibleValues": [
+      "Albanian",
       "American Sign Language (ASL)",
       "Arabic",
       "Bengali",
@@ -276,16 +278,19 @@ const questions = [
       "Cantonese",
       "Creole Latin",
       "Dutch",
+      "Farsi",
       "Finnish",
       "French",
       "German",
       "Greek",
       "Hebrew",
       "Hindi",
+      "Indonesian",
       "Italian",
       "Japanese",
       "Korean",
       "Mandarin",
+      "Other",
       "Polish",
       "Portugese",
       "Punjabi",
@@ -322,6 +327,7 @@ const questions = [
     },
     "possibleValues": [
       "Benefits Applications (SNAP, etc.)",
+      "Childcare",
       "Communications (Writing, Editing, Database Management)",
       "Community Organizing",
       "Creative + Design",
@@ -347,7 +353,8 @@ const questions = [
       "Tax Assistance + Accounting",
       "Tech + Engineering",
       "Undocumented Community Rights + Resources",
-      "Unemployment Insurance Assistance"
+      "Unemployment Insurance Assistance",
+      "Handyman",
     ],
     "required": false,
     "answer": []
