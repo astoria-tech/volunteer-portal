@@ -1,10 +1,58 @@
 const questions = [
   {
+    "title": "First Name",
+    "fieldName": "First Name",
+    "description": null,
+    "fieldType": {
+      "type": "Single line text",
+      "showAs": null
+    },
+    "possibleValues": null,
+    "required": true,
+    "answer": ""
+  },
+  {
+    "title": "Last Name",
+    "fieldName": "Last Name",
+    "description": null,
+    "fieldType": {
+      "type": "Single line text",
+      "showAs": null
+    },
+    "possibleValues": null,
+    "required": false,
+    "answer": ""
+  },
+  {
+    "title": "Preferred Pronouns",
+    "fieldName": "Preferred Pronouns",
+    "description": null,
+    "fieldType": {
+      "type": "Single line text",
+      "showAs": null
+    },
+    "possibleValues": null,
+    "required": true,
+    "answer": ""
+  },
+  {
     "title": "Email Address",
     "fieldName": "Email Address",
     "description": null,
     "fieldType": {
       "type": "Single line text",
+      "showAs": null
+    },
+    "possibleValues": null,
+    "required": true,
+    "answer": ""
+  },
+  {
+    "title": "Please provide your contact phone number:",
+    "fieldName": "Please provide your contact phone number:",
+    "description": null,
+    "fieldType": {
+      "type": "Phone number",
       "showAs": null
     },
     "possibleValues": null,
@@ -96,42 +144,6 @@ const questions = [
     "answer": ""
   },
   {
-    "title": "First Name",
-    "fieldName": "First Name",
-    "description": null,
-    "fieldType": {
-      "type": "Single line text",
-      "showAs": null
-    },
-    "possibleValues": null,
-    "required": true,
-    "answer": ""
-  },
-  {
-    "title": "Last Name",
-    "fieldName": "Last Name",
-    "description": null,
-    "fieldType": {
-      "type": "Single line text",
-      "showAs": null
-    },
-    "possibleValues": null,
-    "required": false,
-    "answer": ""
-  },
-  {
-    "title": "Preferred Pronouns",
-    "fieldName": "Preferred Pronouns",
-    "description": null,
-    "fieldType": {
-      "type": "Single line text",
-      "showAs": null
-    },
-    "possibleValues": null,
-    "required": true,
-    "answer": ""
-  },
-  {
     "title": "Preferred Method of Contact",
     "fieldName": "Preferred Method of Contact",
     "description": null,
@@ -146,18 +158,6 @@ const questions = [
     ],
     "required": false,
     "answer": []
-  },
-  {
-    "title": "Please provide your contact phone number:",
-    "fieldName": "Please provide your contact phone number:",
-    "description": null,
-    "fieldType": {
-      "type": "Phone number",
-      "showAs": null
-    },
-    "possibleValues": null,
-    "required": true,
-    "answer": ""
   },
   {
     "title": "Full Street address (You can leave out your apartment/unit.)",
@@ -191,22 +191,6 @@ const questions = [
       "No, I do not have private tranpsortation"
     ],
     "required": false,
-    "answer": []
-  },
-  {
-    "title": "Times of day you are generally available *",
-    "fieldName": "Times of day you are generally available *",
-    "description": null,
-    "fieldType": {
-      "type": "Multiple select",
-      "showAs": "List"
-    },
-    "possibleValues": [
-      "Morning",
-      "Midday",
-      "Evening"
-    ],
-    "required": true,
     "answer": []
   },
   {
@@ -306,7 +290,7 @@ const questions = [
     "answer": []
   },
   {
-    "title": "Please list what other languages you speak, if any, and level of fluency.",
+    "title": "// TODO: FIX TITLE // Please list what other languages you speak, if any, and level of fluency.",
     "fieldName": "Please list what other languages you speak, if any, and level of fluency.",
     "description": null,
     "fieldType": {
@@ -360,7 +344,7 @@ const questions = [
     "answer": []
   },
   {
-    "title": "Any other resources, skills, interests, certifications, or knowledge do you hold that you would be open to sharing with the neighborhood?",
+    "title": "// TODO: Needed? // Any other resources, skills, interests, certifications, or knowledge do you hold that you would be open to sharing with the neighborhood?",
     "fieldName": "What other resources, skills, interests, certifications, or knowledge do you hold that you would be open to sharing with the neighborhood?",
     "description": null,
     "fieldType": {
@@ -387,22 +371,7 @@ const questions = [
     "answer": ""
   },
   {
-    "title": "Do you have any extra sanitizing/cleaning supplies to donate?",
-    "fieldName": "Do you have any extra sanitizing/cleaning supplies to donate?",
-    "description": null,
-    "fieldType": {
-      "type": "Single select",
-      "showAs": "List"
-    },
-    "possibleValues": [
-      "Yes",
-      "No"
-    ],
-    "required": false,
-    "answer": ""
-  },
-  {
-    "title": "We are looking to identify other community/neighborhood institutions that might need support. Please list any such organizations you have contact with.",
+    "title": "// TODO: Needed? // We are looking to identify other community/neighborhood institutions that might need support. Please list any such organizations you have contact with.",
     "fieldName": "We are looking to identify other community/neighborhood institutions that might need support. Please list any such organizations you have contact with.",
     "description": null,
     "fieldType": {
@@ -414,7 +383,7 @@ const questions = [
     "answer": ""
   },
   {
-    "title": "Anything else you would like to add?",
+    "title": "// TODO: Needed? // Anything else you would like to add?",
     "fieldName": "Anything else you would like to add?",
     "description": null,
     "fieldType": {
