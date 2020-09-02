@@ -290,7 +290,7 @@ const questions = [
     "answer": []
   },
   {
-    "title": "// TODO: FIX TITLE // Please list what other languages you speak, if any, and level of fluency.",
+    "title": "If you selected Other for languages you have verbal fluency with, please list the language here:",
     "fieldName": "Please list what other languages you speak, if any, and level of fluency.",
     "description": null,
     "fieldType": {
@@ -344,7 +344,7 @@ const questions = [
     "answer": []
   },
   {
-    "title": "// TODO: Needed? // Any other resources, skills, interests, certifications, or knowledge do you hold that you would be open to sharing with the neighborhood?",
+    "title": "Any other resources, skills, interests, certifications, or knowledge do you hold that you would be open to sharing with the neighborhood?",
     "fieldName": "What other resources, skills, interests, certifications, or knowledge do you hold that you would be open to sharing with the neighborhood?",
     "description": null,
     "fieldType": {
@@ -371,7 +371,7 @@ const questions = [
     "answer": ""
   },
   {
-    "title": "// TODO: Needed? // We are looking to identify other community/neighborhood institutions that might need support. Please list any such organizations you have contact with.",
+    "title": "We are looking to identify other community/neighborhood institutions that might need support. Please list any such organizations you have contact with.",
     "fieldName": "We are looking to identify other community/neighborhood institutions that might need support. Please list any such organizations you have contact with.",
     "description": null,
     "fieldType": {
@@ -383,7 +383,7 @@ const questions = [
     "answer": ""
   },
   {
-    "title": "// TODO: Needed? // Anything else you would like to add?",
+    "title": "Anything else you would like to add?",
     "fieldName": "Anything else you would like to add?",
     "description": null,
     "fieldType": {
