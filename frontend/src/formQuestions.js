@@ -24,8 +24,8 @@ const questions = [
     "answer": ""
   },
   {
-    "title": "Preferred Pronouns",
-    "fieldName": "Preferred Pronouns",
+    "title": "Pronouns",
+    "fieldName": "Pronouns",
     "description": null,
     "fieldType": {
       "type": "Single line text",
